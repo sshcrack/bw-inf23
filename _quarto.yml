@@ -1,0 +1,22 @@
+project:
+  type: website
+
+website:
+  title: "Coding Adventures"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: aufgabe_1/index.qmd
+        text: 1. Aufgabe
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+execute:
+  freeze: auto

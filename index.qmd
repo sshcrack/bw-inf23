@@ -1,0 +1,5 @@
+---
+title: "Bundeswettbewerb Informatik 2023"
+---
+
+Der Bundeswettbewerb Informatik - Gelöst in Quarto

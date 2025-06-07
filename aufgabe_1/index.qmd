@@ -1,0 +1,153 @@
+---
+title: "1. Aufgabe: Die Lückenhaften Zitate"
+format:
+  html:
+    css: "../styles.css"
+    toc: true
+    toc-title: "Inhalt"
+---
+
+::: {.callout-note appearance="simple"}
+## Die Herausforderung
+Alice und Bob tauschen in ihrem persönlichen Chat
+gerne Sätze aus, die Zitate aus ihrem Lieblings-
+buch sind. Leider hat Trudi einen Weg gefunden,
+Lücken in die Sätze zu reißen und ganze Wörter
+verschwinden zu lassen. So empfing Bob vor
+Kurzem diesen Lückensatz von Alice, den er nicht
+verstehen konnte:
+
+`das ... mir ... ... ... vor`
+
+Er musste lange im Buch blättern, bis er diese
+passende Stelle darin fand:
+
+`das kommt mir gar nicht richtig vor`
+
+Aber er ist unsicher, denn schließlich könnte es ja
+noch andere passende Stellen geben.
+Alice und Bob überlegen, wie sie das Problem
+lösen können. Den Text des Lieblingsbuches gibt
+es auch digital. Da könnte es doch möglich sein,
+sich die Suche nach passenden Stellen von einem
+Computerprogramm abnehmen zu lassen.
+:::
+
+## Unser Ansatz: Textmustersuche mit Regulären Ausdrücken
+
+Das Problem, das Alice und Bob haben, ist ein klassisches Mustererkennungsproblem: Wie findet man einen Teilsatz, bei dem nur einige Wörter bekannt sind, während andere Wörter fehlen?
+
+Für die Lösung bietet sich die Verwendung von **regulären Ausdrücken** (Regular Expressions, kurz RegEx) an. Mit RegEx können wir flexible Muster definieren, die genau unserem Problem entsprechen:
+
+1. Bekannte Wörter bleiben unverändert im Suchmuster
+2. Lücken (fehlende Wörter) werden durch einen Platzhalter ersetzt, der "irgendein Wort" repräsentiert
+3. Die Reihenfolge der Wörter bleibt erhalten
+
+### Die Hauptschritte des Algorithmus:
+
+1. **Eingabe lesen**: Wir lesen die "gestörten" Sätze aus den Dateien
+2. **Muster erstellen**: Wir erstellen ein RegEx-Muster, das bekannte Wörter und Lücken enthält
+3. **Suche durchführen**: Wir durchsuchen den Text nach passenden Stellen
+4. **Ergebnisse anzeigen**: Wir zeigen die gefundenen kompletten Sätze an
+
+## Dateien
+```{python}
+#| label: list-files
+#| echo: false
+#| output: asis
+
+import os
+import pathlib
+
+files_dir = pathlib.Path("files")
+files = sorted(os.listdir(files_dir))
+
+for file in files:
+    file_path = files_dir / file
+    if file_path.is_file():
+        print(f"- [{file}](files/{file})")
+```
+
+::: {.callout-tip}
+Die Dateien `stoerung0.txt` bis `stoerung5.txt` enthalten die lückenhaften Sätze, wobei `_` für ein fehlendes Wort steht. Die Datei `Alice_im_Wunderland.txt` enthält den vollständigen Text des Buches.
+:::
+
+## Implementierung der Lösung
+
+Unsere Implementierung verwendet die `re`-Bibliothek in Python, um reguläre Ausdrücke zu verarbeiten:
+
+```{python}
+#| label: code-explanation
+#| code-fold: false
+#| eval: false
+
+# Regex-Muster für ein beliebiges Wort
+word_pattern = "([a-z])\\w+"
+
+# Für jede Lücke (_) verwenden wir das Wort-Muster
+# Für bekannte Wörter verwenden wir den exakten Text
+```
+
+## Lösung
+```{python}
+#| label: exercise-fig
+#| fig-cap: "Gefundene Lösungen für die Lückensätze"
+#| fig-alt: "Lösungen für die Lückensätze aus Alice im Wunderland"
+#| output: asis
+#| code-fold: true
+import re
+
+questions: list[str] = []
+for i in range(0, 6):
+    file_name = "files/stoerung" + str(i) + ".txt"
+    f = open(file_name)
+    questions.append(f.read())
+
+base_text = open("files/Alice_im_Wunderland.txt").read().lower()
+
+for i, question in enumerate(questions):
+    parts = question.split(" ")
+    regex_parts = []
+
+    for part in parts:
+        if part == "_":
+            regex_parts.append("([a-z])\\w+")
+        else:
+            regex_parts.append(part)
+
+    regex = " ".join(regex_parts)
+
+    matches = re.search(regex, base_text, re.IGNORECASE)
+    if matches is None:
+        print("No match found for:", regex)
+        continue
+
+    m = matches.group(0).split(" ")
+    print(f"Lösung zu Störung {i}\n")
+    print(f"\n\n**Lückensatz:** `{question}`\n")
+    print(f"**Vollständiger Satz:**")
+
+    result = []
+    for j, part in enumerate(parts):
+        if part != "_":
+            result.append(part)
+        else:
+            result.append(f"**{m[j]}**")
+
+    print(f"`{' '.join(result)}`")
+    print("\n\n<br><br>")
+```
+
+## Diskussion des Ansatzes
+
+Diese Methode hat einige interessante Eigenschaften:
+
+1. **Flexibilität**: Der Ansatz funktioniert für beliebig viele Lücken in einem Satz
+2. **Effizienz**: Reguläre Ausdrücke sind für Textsuche optimiert und arbeiten sehr schnell
+3. **Grenzen**: Es kann zu falschen Treffern kommen, wenn die vorhandenen Wörter nicht eindeutig genug sind
+
+Für eine erweiterte Lösung könnte man:
+
+- Kontextinformationen berücksichtigen (z.B. Kapitel oder Abschnitte)
+- Mehrere mögliche Treffer anzeigen und bewerten
+- Sprachmodelle einsetzen, um die wahrscheinlichste Vervollständigung zu finden

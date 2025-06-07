@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "aufgabe_1/index.html",
+    "href": "aufgabe_1/index.html",
+    "title": "1. Aufgabe: Die Lückenhaften Zitate",
+    "section": "",
+    "text": "NoteDie Herausforderung\n\n\n\nAlice und Bob tauschen in ihrem persönlichen Chat gerne Sätze aus, die Zitate aus ihrem Lieblings- buch sind. Leider hat Trudi einen Weg gefunden, Lücken in die Sätze zu reißen und ganze Wörter verschwinden zu lassen. So empfing Bob vor Kurzem diesen Lückensatz von Alice, den er nicht verstehen konnte:\ndas ... mir ... ... ... vor\nEr musste lange im Buch blättern, bis er diese passende Stelle darin fand:\ndas kommt mir gar nicht richtig vor\nAber er ist unsicher, denn schließlich könnte es ja noch andere passende Stellen geben. Alice und Bob überlegen, wie sie das Problem lösen können. Den Text des Lieblingsbuches gibt es auch digital. Da könnte es doch möglich sein, sich die Suche nach passenden Stellen von einem Computerprogramm abnehmen zu lassen."
+  },
+  {
+    "objectID": "aufgabe_1/index.html#files",
+    "href": "aufgabe_1/index.html#files",
+    "title": "1. Aufgabe",
+    "section": "",
+    "text": "Alice_im_Wunderland.txt\nstoerung0.txt\nstoerung1.txt\nstoerung2.txt\nstoerung3.txt\nstoerung4.txt\nstoerung5.txt"
+  },
+  {
+    "objectID": "aufgabe_1/index.html#solution",
+    "href": "aufgabe_1/index.html#solution",
+    "title": "1. Aufgabe",
+    "section": "Solution",
+    "text": "Solution\n\n\nCode\nimport re\n\nquestions: list[str] = []\nfor i in range(0, 6):\n    file_name = \"files/stoerung\" + str(i) + \".txt\"\n    f = open(file_name)\n    questions.append(f.read())\n\nbase_text = open(\"files/Alice_im_Wunderland.txt\").read().lower()\n\nfor i, question in enumerate(questions):\n    parts = question.split(\" \")\n    regex_parts = []\n\n    for part in parts:\n        if part == \"_\":\n            regex_parts.append(\"([a-z])\\\\w+\")\n        else:\n            regex_parts.append(part)\n\n    regex = \" \".join(regex_parts)\n\n    matches = re.search(regex, base_text, re.IGNORECASE)\n    if matches is None:\n        print(\"No match found for:\", regex)\n        continue\n\n    m = matches.group(0).split(\" \")\n    print(\"**Störung %d**:\" % i)\n    for i, part in enumerate(parts):\n        if part != \"_\":\n            print(part)\n            continue\n\n        print(\"[%s]{.underline}\" % m[i])\n    print(\"\\n\\n\")\n\nStörung 0: das kommt mir gar nicht richtig vor\nStörung 1: ich muß in clara verwandelt\nStörung 2: fressen katzen gern spatzen\nStörung 3: das spiel fing an\nStörung 4: ein sehr schöner tag\nStörung 5: wollen sie so gut sein"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bundeswettbewerb Informatik 2023",
+    "section": "",
+    "text": "Der Bundeswettbewerb Informatik - Gelöst in Quarto"
+  },
+  {
+    "objectID": "aufgabe_1/index.html#dateien",
+    "href": "aufgabe_1/index.html#dateien",
+    "title": "1. Aufgabe: Die Lückenhaften Zitate",
+    "section": "Dateien",
+    "text": "Dateien\n\n\nAlice_im_Wunderland.txt\nstoerung0.txt\nstoerung1.txt\nstoerung2.txt\nstoerung3.txt\nstoerung4.txt\nstoerung5.txt\n\n\n\n\n\n\n\n\nTip\n\n\n\nDie Dateien stoerung0.txt bis stoerung5.txt enthalten die lückenhaften Sätze, wobei _ für ein fehlendes Wort steht. Die Datei Alice_im_Wunderland.txt enthält den vollständigen Text des Buches."
+  },
+  {
+    "objectID": "aufgabe_1/index.html#l",
+    "href": "aufgabe_1/index.html#l",
+    "title": "1. Aufgabe",
+    "section": "L",
+    "text": "L\n\n\nCode\nimport re\n\nquestions: list[str] = []\nfor i in range(0, 6):\n    file_name = \"files/stoerung\" + str(i) + \".txt\"\n    f = open(file_name)\n    questions.append(f.read())\n\nbase_text = open(\"files/Alice_im_Wunderland.txt\").read().lower()\n\nfor i, question in enumerate(questions):\n    parts = question.split(\" \")\n    regex_parts = []\n\n    for part in parts:\n        if part == \"_\":\n            regex_parts.append(\"([a-z])\\\\w+\")\n        else:\n            regex_parts.append(part)\n\n    regex = \" \".join(regex_parts)\n\n    matches = re.search(regex, base_text, re.IGNORECASE)\n    if matches is None:\n        print(\"No match found for:\", regex)\n        continue\n\n    m = matches.group(0).split(\" \")\n    print(\"**Störung %d**:\" % i)\n    for i, part in enumerate(parts):\n        if part != \"_\":\n            print(part)\n            continue\n\n        print(\"[%s]{.underline}\" % m[i])\n    print(\"\\n\\n\")\n\nStörung 0: das kommt mir gar nicht richtig vor\nStörung 1: ich muß in clara verwandelt\nStörung 2: fressen katzen gern spatzen\nStörung 3: das spiel fing an\nStörung 4: ein sehr schöner tag\nStörung 5: wollen sie so gut sein"
+  },
+  {
+    "objectID": "aufgabe_1/index.html#lösung",
+    "href": "aufgabe_1/index.html#lösung",
+    "title": "1. Aufgabe: Die Lückenhaften Zitate",
+    "section": "Lösung",
+    "text": "Lösung\n\n\nCode\nimport re\n\nquestions: list[str] = []\nfor i in range(0, 6):\n    file_name = \"files/stoerung\" + str(i) + \".txt\"\n    f = open(file_name)\n    questions.append(f.read())\n\nbase_text = open(\"files/Alice_im_Wunderland.txt\").read().lower()\n\nfor i, question in enumerate(questions):\n    parts = question.split(\" \")\n    regex_parts = []\n\n    for part in parts:\n        if part == \"_\":\n            regex_parts.append(\"([a-z])\\\\w+\")\n        else:\n            regex_parts.append(part)\n\n    regex = \" \".join(regex_parts)\n\n    matches = re.search(regex, base_text, re.IGNORECASE)\n    if matches is None:\n        print(\"No match found for:\", regex)\n        continue\n\n    m = matches.group(0).split(\" \")\n    print(f\"Lösung zu Störung {i}\\n\")\n    print(f\"\\n\\n**Lückensatz:** `{question}`\\n\")\n    print(f\"**Vollständiger Satz:**\")\n\n    result = []\n    for j, part in enumerate(parts):\n        if part != \"_\":\n            result.append(part)\n        else:\n            result.append(f\"**{m[j]}**\")\n\n    print(f\"`{' '.join(result)}`\")\n    print(\"\\n\\n&lt;br&gt;&lt;br&gt;\")\n\nLösung zu Störung 0\nLückensatz: das _ mir _ _ _ vor\nVollständiger Satz: das **kommt** mir **gar** **nicht** **richtig** vor\n Lösung zu Störung 1\nLückensatz: ich muß _ clara _\nVollständiger Satz: ich muß **in** clara **verwandelt**\n Lösung zu Störung 2\nLückensatz: fressen _ gern _\nVollständiger Satz: fressen **katzen** gern **spatzen**\n Lösung zu Störung 3\nLückensatz: das _ fing _\nVollständiger Satz: das **spiel** fing **an**\n Lösung zu Störung 4\nLückensatz: ein _ _ tag\nVollständiger Satz: ein **sehr** **schöner** tag\n Lösung zu Störung 5\nLückensatz: wollen _ so _ sein\nVollständiger Satz: wollen **sie** so **gut** sein"
+  },
+  {
+    "objectID": "aufgabe_1/index.html#unser-ansatz-textmustersuche-mit-regulären-ausdrücken",
+    "href": "aufgabe_1/index.html#unser-ansatz-textmustersuche-mit-regulären-ausdrücken",
+    "title": "1. Aufgabe: Die Lückenhaften Zitate",
+    "section": "Unser Ansatz: Textmustersuche mit Regulären Ausdrücken",
+    "text": "Unser Ansatz: Textmustersuche mit Regulären Ausdrücken\nDas Problem, das Alice und Bob haben, ist ein klassisches Mustererkennungsproblem: Wie findet man einen Teilsatz, bei dem nur einige Wörter bekannt sind, während andere Wörter fehlen?\nFür die Lösung bietet sich die Verwendung von regulären Ausdrücken (Regular Expressions, kurz RegEx) an. Mit RegEx können wir flexible Muster definieren, die genau unserem Problem entsprechen:\n\nBekannte Wörter bleiben unverändert im Suchmuster\nLücken (fehlende Wörter) werden durch einen Platzhalter ersetzt, der “irgendein Wort” repräsentiert\nDie Reihenfolge der Wörter bleibt erhalten\n\n\nDie Hauptschritte des Algorithmus:\n\nEingabe lesen: Wir lesen die “gestörten” Sätze aus den Dateien\nMuster erstellen: Wir erstellen ein RegEx-Muster, das bekannte Wörter und Lücken enthält\nSuche durchführen: Wir durchsuchen den Text nach passenden Stellen\nErgebnisse anzeigen: Wir zeigen die gefundenen kompletten Sätze an"
+  },
+  {
+    "objectID": "aufgabe_1/index.html#implementierung-der-lösung",
+    "href": "aufgabe_1/index.html#implementierung-der-lösung",
+    "title": "1. Aufgabe: Die Lückenhaften Zitate",
+    "section": "Implementierung der Lösung",
+    "text": "Implementierung der Lösung\nUnsere Implementierung verwendet die re-Bibliothek in Python, um reguläre Ausdrücke zu verarbeiten:\n\n# Regex-Muster für ein beliebiges Wort\nword_pattern = \"([a-z])\\\\w+\"\n\n# Für jede Lücke (_) verwenden wir das Wort-Muster\n# Für bekannte Wörter verwenden wir den exakten Text"
+  },
+  {
+    "objectID": "aufgabe_1/index.html#diskussion-des-ansatzes",
+    "href": "aufgabe_1/index.html#diskussion-des-ansatzes",
+    "title": "1. Aufgabe: Die Lückenhaften Zitate",
+    "section": "Diskussion des Ansatzes",
+    "text": "Diskussion des Ansatzes\nDiese Methode hat einige interessante Eigenschaften:\n\nFlexibilität: Der Ansatz funktioniert für beliebig viele Lücken in einem Satz\nEffizienz: Reguläre Ausdrücke sind für Textsuche optimiert und arbeiten sehr schnell\nGrenzen: Es kann zu falschen Treffern kommen, wenn die vorhandenen Wörter nicht eindeutig genug sind\n\nFür eine erweiterte Lösung könnte man:\n\nKontextinformationen berücksichtigen (z.B. Kapitel oder Abschnitte)\nMehrere mögliche Treffer anzeigen und bewerten\nSprachmodelle einsetzen, um die wahrscheinlichste Vervollständigung zu finden"
+  }
+]
