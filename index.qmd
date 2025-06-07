@@ -2,4 +2,42 @@
 title: "Bundeswettbewerb Informatik 2023"
 ---
 
-Der Bundeswettbewerb Informatik - Gelöst in Quarto
+## Einleitung
+
+Willkommen zu meiner Dokumentation der Lösungen für den Bundeswettbewerb Informatik 2023. In diesem Quarto-Projekt präsentiere ich meine Herangehensweisen, Lösungsstrategien und Implementierungen für die verschiedenen Aufgaben des Wettbewerbs. Der Bundeswettbewerb Informatik ist einer der renommiertesten Informatikwettbewerbe für Schülerinnen und Schüler in Deutschland und bietet eine hervorragende Gelegenheit, praktische Programmierfähigkeiten und algorithmisches Denken zu demonstrieren.
+
+Dieses Projekt dient nicht nur als Dokumentation meiner Lösungen, sondern soll auch anderen Teilnehmenden und Interessierten als Inspirationsquelle und Lernmaterial dienen. Ich habe mich für Quarto als Plattform entschieden, da es die nahtlose Integration von Code, Erklärungen und Visualisierungen ermöglicht.
+
+## Überblick über die Runden
+
+Der Bundeswettbewerb Informatik gliedert sich in drei aufeinander aufbauende Runden, die unterschiedliche Anforderungen an die Teilnehmenden stellen:
+
+### 1. Runde
+
+Die erste Runde ist für alle Interessierten offen und besteht aus mehreren Programmieraufgaben, die innerhalb eines bestimmten Zeitraums zu lösen sind. Die Aufgaben decken unterschiedliche Bereiche der Informatik ab und erfordern sowohl theoretisches Verständnis als auch praktische Programmierfähigkeiten.
+
+In der ersten Runde habe ich folgende Aufgaben bearbeitet:
+
+- [**Aufgabe 1**](./aufgabe_1): Störung - Textanalyse und -rekonstruktion
+- **Aufgabe 2**: Verzinkt
+- **Aufgabe 3**: Sudokopie
+
+### 2. Runde
+
+Die zweite Runde ist anspruchsvoller und richtet sich an diejenigen, die in der ersten Runde erfolgreich waren. Hier werden komplexere Probleme gestellt, die tieferes algorithmisches Verständnis und fortgeschrittene Programmierkenntnisse erfordern.
+
+In der zweiten Runde habe ich mich mit diesen Aufgaben befasst:
+
+- **Aufgabe 1**: [Kurzbeschreibung der Aufgabe]
+- **Aufgabe 2**: [Kurzbeschreibung der Aufgabe]
+
+### 3. Runde (Endrunde)
+
+Die dritte Runde ist die Endrunde, zu der nur die besten Teilnehmenden eingeladen werden. Sie findet in Form eines mehrtägigen Workshops statt, bei dem die Finalisten anspruchsvolle Aufgaben lösen und ihre Lösungen vor einer Jury präsentieren müssen.
+
+In der Endrunde werden sowohl Einzelaufgaben als auch Gruppenarbeiten durchgeführt, die umfassende Kenntnisse in verschiedenen Bereichen der Informatik erfordern:
+
+- **Theoretische Informatik**
+- **Algorithmen und Datenstrukturen**
+- **Softwareentwicklung**
+- **Problemlösung unter Zeitdruck**

@@ -2,13 +2,15 @@ project:
   type: website
 
 website:
-  title: "Coding Adventures"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: aufgabe_1/index.qmd
-        text: 1. Aufgabe
+      - text: "1. Runde"
+        menu:
+          - href: aufgabe_1/index.qmd
+            text: 1. Aufgabe
+
 
 format:
   html:

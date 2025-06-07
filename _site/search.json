@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "Bundeswettbewerb Informatik 2023",
     "section": "",
-    "text": "Der Bundeswettbewerb Informatik - Gelöst in Quarto"
+    "text": "Willkommen zu meiner Dokumentation der Lösungen für den Bundeswettbewerb Informatik 2023. In diesem Quarto-Projekt präsentiere ich meine Herangehensweisen, Lösungsstrategien und Implementierungen für die verschiedenen Aufgaben des Wettbewerbs. Der Bundeswettbewerb Informatik ist einer der renommiertesten Informatikwettbewerbe für Schülerinnen und Schüler in Deutschland und bietet eine hervorragende Gelegenheit, praktische Programmierfähigkeiten und algorithmisches Denken zu demonstrieren.\nDieses Projekt dient nicht nur als Dokumentation meiner Lösungen, sondern soll auch anderen Teilnehmenden und Interessierten als Inspirationsquelle und Lernmaterial dienen. Ich habe mich für Quarto als Plattform entschieden, da es die nahtlose Integration von Code, Erklärungen und Visualisierungen ermöglicht."
   },
   {
     "objectID": "aufgabe_1/index.html#dateien",
@@ -68,5 +68,26 @@
     "title": "1. Aufgabe: Die Lückenhaften Zitate",
     "section": "Diskussion des Ansatzes",
     "text": "Diskussion des Ansatzes\nDiese Methode hat einige interessante Eigenschaften:\n\nFlexibilität: Der Ansatz funktioniert für beliebig viele Lücken in einem Satz\nEffizienz: Reguläre Ausdrücke sind für Textsuche optimiert und arbeiten sehr schnell\nGrenzen: Es kann zu falschen Treffern kommen, wenn die vorhandenen Wörter nicht eindeutig genug sind\n\nFür eine erweiterte Lösung könnte man:\n\nKontextinformationen berücksichtigen (z.B. Kapitel oder Abschnitte)\nMehrere mögliche Treffer anzeigen und bewerten\nSprachmodelle einsetzen, um die wahrscheinlichste Vervollständigung zu finden"
+  },
+  {
+    "objectID": "index.html#einleitung",
+    "href": "index.html#einleitung",
+    "title": "Bundeswettbewerb Informatik 2023",
+    "section": "",
+    "text": "Willkommen zu meiner Dokumentation der Lösungen für den Bundeswettbewerb Informatik 2023. In diesem Quarto-Projekt präsentiere ich meine Herangehensweisen, Lösungsstrategien und Implementierungen für die verschiedenen Aufgaben des Wettbewerbs. Der Bundeswettbewerb Informatik ist einer der renommiertesten Informatikwettbewerbe für Schülerinnen und Schüler in Deutschland und bietet eine hervorragende Gelegenheit, praktische Programmierfähigkeiten und algorithmisches Denken zu demonstrieren.\nDieses Projekt dient nicht nur als Dokumentation meiner Lösungen, sondern soll auch anderen Teilnehmenden und Interessierten als Inspirationsquelle und Lernmaterial dienen. Ich habe mich für Quarto als Plattform entschieden, da es die nahtlose Integration von Code, Erklärungen und Visualisierungen ermöglicht."
+  },
+  {
+    "objectID": "index.html#überblick-über-die-runden",
+    "href": "index.html#überblick-über-die-runden",
+    "title": "Bundeswettbewerb Informatik 2023",
+    "section": "Überblick über die Runden",
+    "text": "Überblick über die Runden\nDer Bundeswettbewerb Informatik gliedert sich in drei aufeinander aufbauende Runden, die unterschiedliche Anforderungen an die Teilnehmenden stellen:\n\n1. Runde\nDie erste Runde ist für alle Interessierten offen und besteht aus mehreren Programmieraufgaben, die innerhalb eines bestimmten Zeitraums zu lösen sind. Die Aufgaben decken unterschiedliche Bereiche der Informatik ab und erfordern sowohl theoretisches Verständnis als auch praktische Programmierfähigkeiten.\nIn der ersten Runde habe ich folgende Aufgaben bearbeitet:\n\nAufgabe 1: Störung - Textanalyse und -rekonstruktion\nAufgabe 2: Verzinkt\nAufgabe 3: Sudokopie\n\n\n\n2. Runde\nDie zweite Runde ist anspruchsvoller und richtet sich an diejenigen, die in der ersten Runde erfolgreich waren. Hier werden komplexere Probleme gestellt, die tieferes algorithmisches Verständnis und fortgeschrittene Programmierkenntnisse erfordern.\nIn der zweiten Runde habe ich mich mit diesen Aufgaben befasst:\n\nAufgabe 1: [Kurzbeschreibung der Aufgabe]\nAufgabe 2: [Kurzbeschreibung der Aufgabe]\n\n\n\n3. Runde (Endrunde)\nDie dritte Runde ist die Endrunde, zu der nur die besten Teilnehmenden eingeladen werden. Sie findet in Form eines mehrtägigen Workshops statt, bei dem die Finalisten anspruchsvolle Aufgaben lösen und ihre Lösungen vor einer Jury präsentieren müssen.\nIn der Endrunde werden sowohl Einzelaufgaben als auch Gruppenarbeiten durchgeführt, die umfassende Kenntnisse in verschiedenen Bereichen der Informatik erfordern:\n\nTheoretische Informatik\nAlgorithmen und Datenstrukturen\nSoftwareentwicklung\nProblemlösung unter Zeitdruck"
+  },
+  {
+    "objectID": "index.html#navigation",
+    "href": "index.html#navigation",
+    "title": "Bundeswettbewerb Informatik 2023",
+    "section": "",
+    "text": "Auf dieser Website finden Sie detaillierte Dokumentationen zu meinen Lösungen für jede Aufgabe. Die Navigation in der oberen Leiste führt Sie direkt zu den einzelnen Aufgaben der verschiedenen Runden."
   }
 ]
