@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bundeswettbewerb Informatik 2023</title>
+<title>1. Aufgabe: Störung</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a126389619fad6dbfb296a5315d49fef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2de20cb76464c514fcd56ce40d6195d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a126389619fad6dbfb296a5315d49fef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2de20cb76464c514fcd56ce40d6195d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -86,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -95,11 +130,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-runde">    
         <li>
-    <a class="dropdown-item" href="./runde_1/aufgabe_1/index.html">
+    <a class="dropdown-item" href="../../runde_1/aufgabe_1/index.html">
  <span class="dropdown-text">1. Aufgabe</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./runde_1/aufgabe_2/index.html">
+    <a class="dropdown-item" href="../../runde_1/aufgabe_2/index.html">
  <span class="dropdown-text">2. Aufgabe</span></a>
   </li>  
     </ul>
@@ -117,16 +152,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Inhalt</h2>
    
   <ul>
-  <li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung">Einleitung</a></li>
-  <li><a href="#überblick-über-die-runden" id="toc-überblick-über-die-runden" class="nav-link" data-scroll-target="#überblick-über-die-runden">Überblick über die Runden</a>
+  <li><a href="#unser-ansatz-textmustersuche-mit-regulären-ausdrücken" id="toc-unser-ansatz-textmustersuche-mit-regulären-ausdrücken" class="nav-link active" data-scroll-target="#unser-ansatz-textmustersuche-mit-regulären-ausdrücken">Unser Ansatz: Textmustersuche mit Regulären Ausdrücken</a>
   <ul class="collapse">
-  <li><a href="#runde" id="toc-runde" class="nav-link" data-scroll-target="#runde">1. Runde</a></li>
-  <li><a href="#runde-1" id="toc-runde-1" class="nav-link" data-scroll-target="#runde-1">2. Runde</a></li>
-  <li><a href="#runde-endrunde" id="toc-runde-endrunde" class="nav-link" data-scroll-target="#runde-endrunde">3. Runde (Endrunde)</a></li>
+  <li><a href="#die-hauptschritte-des-algorithmus" id="toc-die-hauptschritte-des-algorithmus" class="nav-link" data-scroll-target="#die-hauptschritte-des-algorithmus">Die Hauptschritte des Algorithmus:</a></li>
   </ul></li>
+  <li><a href="#dateien" id="toc-dateien" class="nav-link" data-scroll-target="#dateien">Dateien</a></li>
+  <li><a href="#implementierung-der-lösung" id="toc-implementierung-der-lösung" class="nav-link" data-scroll-target="#implementierung-der-lösung">Implementierung der Lösung</a></li>
+  <li><a href="#lösung" id="toc-lösung" class="nav-link" data-scroll-target="#lösung">Lösung</a></li>
+  <li><a href="#diskussion-des-ansatzes" id="toc-diskussion-des-ansatzes" class="nav-link" data-scroll-target="#diskussion-des-ansatzes">Diskussion des Ansatzes</a></li>
   </ul>
 </nav>
     </div>
@@ -135,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bundeswettbewerb Informatik 2023</h1>
+<h1 class="title">1. Aufgabe: Störung</h1>
 </div>
 
 
@@ -152,46 +188,164 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="einleitung" class="level2">
-<h2 class="anchored" data-anchor-id="einleitung">Einleitung</h2>
-<p>Willkommen zu meiner Dokumentation der Lösungen für den Bundeswettbewerb Informatik 2023. In diesem Quarto-Projekt präsentiere ich meine Herangehensweisen, Lösungsstrategien und Implementierungen für die verschiedenen Aufgaben des Wettbewerbs. Der Bundeswettbewerb Informatik ist einer der renommiertesten Informatikwettbewerbe für Schülerinnen und Schüler in Deutschland und bietet eine hervorragende Gelegenheit, praktische Programmierfähigkeiten und algorithmisches Denken zu demonstrieren.</p>
-<p>Dieses Projekt dient nicht nur als Dokumentation meiner Lösungen, sondern soll auch anderen Teilnehmenden und Interessierten als Inspirationsquelle und Lernmaterial dienen. Ich habe mich für Quarto als Plattform entschieden, da es die nahtlose Integration von Code, Erklärungen und Visualisierungen ermöglicht.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Die Aufgabe
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Alice und Bob tauschen in ihrem persönlichen Chat gerne Sätze aus, die Zitate aus ihrem Lieblingsbuch sind. Leider hat Trudi einen Weg gefunden, Lücken in die Sätze zu reißen und ganze Wörter verschwinden zu lassen. So empfing Bob vor Kurzem diesen Lückensatz von Alice, den er nicht verstehen konnte:</p>
+<p><code>das ... mir ... ... ... vor</code></p>
+<p>Er musste lange im Buch blättern, bis er diese passende Stelle darin fand:</p>
+<p><code>das kommt mir gar nicht richtig vor</code></p>
+<p>Aber er ist unsicher, denn schließlich könnte es ja noch andere passende Stellen geben. Alice und Bob überlegen, wie sie das Problem lösen können. Den Text des Lieblingsbuches gibt es auch digital. Da könnte es doch möglich sein, sich die Suche nach passenden Stellen von einem Computerprogramm abnehmen zu lassen.</p>
+</div>
+</div>
+<section id="unser-ansatz-textmustersuche-mit-regulären-ausdrücken" class="level2">
+<h2 class="anchored" data-anchor-id="unser-ansatz-textmustersuche-mit-regulären-ausdrücken">Unser Ansatz: Textmustersuche mit Regulären Ausdrücken</h2>
+<p>Das Problem, das Alice und Bob haben, ist ein klassisches Mustererkennungsproblem: Wie findet man einen Teilsatz, bei dem nur einige Wörter bekannt sind, während andere Wörter fehlen?</p>
+<p>Für die Lösung bietet sich die Verwendung von <strong>regulären Ausdrücken</strong> (Regular Expressions, kurz RegEx) an. Mit RegEx können wir flexible Muster definieren, die genau unserem Problem entsprechen:</p>
+<ol type="1">
+<li>Bekannte Wörter bleiben unverändert im Suchmuster</li>
+<li>Lücken (fehlende Wörter) werden durch einen Platzhalter ersetzt, der “irgendein Wort” repräsentiert</li>
+<li>Die Reihenfolge der Wörter bleibt erhalten</li>
+</ol>
+<section id="die-hauptschritte-des-algorithmus" class="level3">
+<h3 class="anchored" data-anchor-id="die-hauptschritte-des-algorithmus">Die Hauptschritte des Algorithmus:</h3>
+<ol type="1">
+<li><strong>Eingabe lesen</strong>: Wir lesen die “gestörten” Sätze aus den Dateien</li>
+<li><strong>Muster erstellen</strong>: Wir erstellen ein RegEx-Muster, das bekannte Wörter und Lücken enthält</li>
+<li><strong>Suche durchführen</strong>: Wir durchsuchen den Text nach passenden Stellen</li>
+<li><strong>Ergebnisse anzeigen</strong>: Wir zeigen die gefundenen kompletten Sätze an</li>
+</ol>
 </section>
-<section id="überblick-über-die-runden" class="level2">
-<h2 class="anchored" data-anchor-id="überblick-über-die-runden">Überblick über die Runden</h2>
-<p>Der Bundeswettbewerb Informatik gliedert sich in drei aufeinander aufbauende Runden, die unterschiedliche Anforderungen an die Teilnehmenden stellen:</p>
-<section id="runde" class="level3">
-<h3 class="anchored" data-anchor-id="runde">1. Runde</h3>
-<p>Die erste Runde ist für alle Interessierten offen und besteht aus mehreren Programmieraufgaben, die innerhalb eines bestimmten Zeitraums zu lösen sind. Die Aufgaben decken unterschiedliche Bereiche der Informatik ab und erfordern sowohl theoretisches Verständnis als auch praktische Programmierfähigkeiten.</p>
-<p>In der ersten Runde habe ich folgende Aufgaben bearbeitet:</p>
+</section>
+<section id="dateien" class="level2">
+<h2 class="anchored" data-anchor-id="dateien">Dateien</h2>
+<div id="list-files" class="cell" data-execution_count="1">
 <ul>
-<li><a href="./runde_1/aufgabe_1"><strong>Aufgabe 1</strong></a>: Störung - Textanalyse und -rekonstruktion</li>
-<li><a href="./runde_1/aufgabe_2"><strong>Aufgabe 2</strong></a>: Verzinkt</li>
-<li><strong>Aufgabe 3</strong>: Sudokopie</li>
+<li><a href="files/Alice_im_Wunderland.txt">Alice_im_Wunderland.txt</a></li>
+<li><a href="files/stoerung0.txt">stoerung0.txt</a></li>
+<li><a href="files/stoerung1.txt">stoerung1.txt</a></li>
+<li><a href="files/stoerung2.txt">stoerung2.txt</a></li>
+<li><a href="files/stoerung3.txt">stoerung3.txt</a></li>
+<li><a href="files/stoerung4.txt">stoerung4.txt</a></li>
+<li><a href="files/stoerung5.txt">stoerung5.txt</a></li>
 </ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die Dateien <code>stoerung0.txt</code> bis <code>stoerung5.txt</code> enthalten die lückenhaften Sätze, wobei <code>_</code> für ein fehlendes Wort steht. Die Datei <code>Alice_im_Wunderland.txt</code> enthält den vollständigen Text des Buches.</p>
+</div>
+</div>
 </section>
-<section id="runde-1" class="level3">
-<h3 class="anchored" data-anchor-id="runde-1">2. Runde</h3>
-<p>Die zweite Runde ist anspruchsvoller und richtet sich an diejenigen, die in der ersten Runde erfolgreich waren. Hier werden komplexere Probleme gestellt, die tieferes algorithmisches Verständnis und fortgeschrittene Programmierkenntnisse erfordern.</p>
-<p>In der zweiten Runde habe ich mich mit diesen Aufgaben befasst:</p>
-<ul>
-<li><strong>Aufgabe 1</strong>: [Kurzbeschreibung der Aufgabe]</li>
-<li><strong>Aufgabe 2</strong>: [Kurzbeschreibung der Aufgabe]</li>
-</ul>
+<section id="implementierung-der-lösung" class="level2">
+<h2 class="anchored" data-anchor-id="implementierung-der-lösung">Implementierung der Lösung</h2>
+<p>Unsere Implementierung verwendet die <code>re</code>-Bibliothek in Python, um reguläre Ausdrücke zu verarbeiten:</p>
+<div id="code-explanation" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regex-Muster für ein beliebiges Wort</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>word_pattern <span class="op">=</span> <span class="st">"([a-z])</span><span class="ch">\\</span><span class="st">w+"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Für jede Lücke (_) verwenden wir das Wort-Muster</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Für bekannte Wörter verwenden wir den exakten Text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="runde-endrunde" class="level3">
-<h3 class="anchored" data-anchor-id="runde-endrunde">3. Runde (Endrunde)</h3>
-<p>Die dritte Runde ist die Endrunde, zu der nur die besten Teilnehmenden eingeladen werden. Sie findet in Form eines mehrtägigen Workshops statt, bei dem die Finalisten anspruchsvolle Aufgaben lösen und ihre Lösungen vor einer Jury präsentieren müssen.</p>
-<p>In der Endrunde werden sowohl Einzelaufgaben als auch Gruppenarbeiten durchgeführt, die umfassende Kenntnisse in verschiedenen Bereichen der Informatik erfordern:</p>
+<section id="lösung" class="level2">
+<h2 class="anchored" data-anchor-id="lösung">Lösung</h2>
+<div id="exercise-fig" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>questions: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> []</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">6</span>):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    file_name <span class="op">=</span> <span class="st">"files/stoerung"</span> <span class="op">+</span> <span class="bu">str</span>(i) <span class="op">+</span> <span class="st">".txt"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="bu">open</span>(file_name)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    questions.append(f.read())</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>base_text <span class="op">=</span> <span class="bu">open</span>(<span class="st">"files/Alice_im_Wunderland.txt"</span>).read().lower()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, question <span class="kw">in</span> <span class="bu">enumerate</span>(questions):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    parts <span class="op">=</span> question.split(<span class="st">" "</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    regex_parts <span class="op">=</span> []</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> part <span class="kw">in</span> parts:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> part <span class="op">==</span> <span class="st">"_"</span>:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            regex_parts.append(<span class="st">"([a-z])</span><span class="ch">\\</span><span class="st">w+"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            regex_parts.append(part)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    regex <span class="op">=</span> <span class="st">" "</span>.join(regex_parts)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    matches <span class="op">=</span> re.search(regex, base_text, re.IGNORECASE)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> matches <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"No match found for:"</span>, regex)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> matches.group(<span class="dv">0</span>).split(<span class="st">" "</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Lösung zu Störung </span><span class="sc">{</span>i<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n\n</span><span class="ss">**Lückensatz:** `</span><span class="sc">{</span>question<span class="sc">}</span><span class="ss">`</span><span class="ch">\n</span><span class="ss">"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"**Vollständiger Satz:**"</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j, part <span class="kw">in</span> <span class="bu">enumerate</span>(parts):</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> part <span class="op">!=</span> <span class="st">"_"</span>:</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            result.append(part)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>            result.append(<span class="ss">f"**</span><span class="sc">{</span>m[j]<span class="sc">}</span><span class="ss">**"</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"`</span><span class="sc">{</span><span class="st">' '</span><span class="sc">.</span>join(result)<span class="sc">}</span><span class="ss">`"</span>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">&lt;br&gt;&lt;br&gt;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Lösung zu Störung 0</p>
+<p><strong>Lückensatz:</strong> <code>das _ mir _ _ _ vor</code></p>
+<p><strong>Vollständiger Satz:</strong> <code>das **kommt** mir **gar** **nicht** **richtig** vor</code></p>
+<p><br><br> Lösung zu Störung 1</p>
+<p><strong>Lückensatz:</strong> <code>ich muß _ clara _</code></p>
+<p><strong>Vollständiger Satz:</strong> <code>ich muß **in** clara **verwandelt**</code></p>
+<p><br><br> Lösung zu Störung 2</p>
+<p><strong>Lückensatz:</strong> <code>fressen _ gern _</code></p>
+<p><strong>Vollständiger Satz:</strong> <code>fressen **katzen** gern **spatzen**</code></p>
+<p><br><br> Lösung zu Störung 3</p>
+<p><strong>Lückensatz:</strong> <code>das _ fing _</code></p>
+<p><strong>Vollständiger Satz:</strong> <code>das **spiel** fing **an**</code></p>
+<p><br><br> Lösung zu Störung 4</p>
+<p><strong>Lückensatz:</strong> <code>ein _ _ tag</code></p>
+<p><strong>Vollständiger Satz:</strong> <code>ein **sehr** **schöner** tag</code></p>
+<p><br><br> Lösung zu Störung 5</p>
+<p><strong>Lückensatz:</strong> <code>wollen _ so _ sein</code></p>
+<p><strong>Vollständiger Satz:</strong> <code>wollen **sie** so **gut** sein</code></p>
+<p><br><br></p>
+</div>
+</section>
+<section id="diskussion-des-ansatzes" class="level2">
+<h2 class="anchored" data-anchor-id="diskussion-des-ansatzes">Diskussion des Ansatzes</h2>
+<p>Diese Methode hat einige interessante Eigenschaften:</p>
+<ol type="1">
+<li><strong>Flexibilität</strong>: Der Ansatz funktioniert für beliebig viele Lücken in einem Satz</li>
+<li><strong>Effizienz</strong>: Reguläre Ausdrücke sind für Textsuche optimiert und arbeiten sehr schnell</li>
+<li><strong>Grenzen</strong>: Es kann zu falschen Treffern kommen, wenn die vorhandenen Wörter nicht eindeutig genug sind</li>
+</ol>
+<p>Für eine erweiterte Lösung könnte man:</p>
 <ul>
-<li><strong>Theoretische Informatik</strong></li>
-<li><strong>Algorithmen und Datenstrukturen</strong></li>
-<li><strong>Softwareentwicklung</strong></li>
-<li><strong>Problemlösung unter Zeitdruck</strong></li>
+<li>Kontextinformationen berücksichtigen (z.B. Kapitel oder Abschnitte)</li>
+<li>Mehrere mögliche Treffer anzeigen und bewerten</li>
+<li>Sprachmodelle einsetzen, um die wahrscheinlichste Vervollständigung zu finden</li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
