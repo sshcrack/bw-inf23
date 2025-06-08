@@ -8,9 +8,10 @@ website:
         text: Home
       - text: "1. Runde"
         menu:
-          - href: aufgabe_1/index.qmd
+          - href: runde_1/aufgabe_1/index.qmd
             text: 1. Aufgabe
-
+          - href: runde_1/aufgabe_2/index.qmd
+            text: 2. Aufgabe
 
 format:
   html:

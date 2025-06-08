@@ -18,8 +18,8 @@ Die erste Runde ist für alle Interessierten offen und besteht aus mehreren Prog
 
 In der ersten Runde habe ich folgende Aufgaben bearbeitet:
 
-- [**Aufgabe 1**](./aufgabe_1): Störung - Textanalyse und -rekonstruktion
-- **Aufgabe 2**: Verzinkt
+- [**Aufgabe 1**](./runde_1/aufgabe_1): Störung - Textanalyse und -rekonstruktion
+- [**Aufgabe 2**](./runde_1/aufgabe_2): Verzinkt
 - **Aufgabe 3**: Sudokopie
 
 ### 2. Runde

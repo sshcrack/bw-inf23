@@ -1,17 +1,16 @@
 ---
-title: "1. Aufgabe: Die Lückenhaften Zitate"
+title: "1. Aufgabe: Störung"
 format:
   html:
-    css: "../styles.css"
+    css: "../../styles.css"
     toc: true
     toc-title: "Inhalt"
 ---
 
 ::: {.callout-note appearance="simple"}
-## Die Herausforderung
+## Die Aufgabe
 Alice und Bob tauschen in ihrem persönlichen Chat
-gerne Sätze aus, die Zitate aus ihrem Lieblings-
-buch sind. Leider hat Trudi einen Weg gefunden,
+gerne Sätze aus, die Zitate aus ihrem Lieblingsbuch sind. Leider hat Trudi einen Weg gefunden,
 Lücken in die Sätze zu reißen und ganze Wörter
 verschwinden zu lassen. So empfing Bob vor
 Kurzem diesen Lückensatz von Alice, den er nicht

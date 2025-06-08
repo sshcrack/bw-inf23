@@ -1,0 +1,317 @@
+---
+title: "2. Aufgabe: Verzinkt"
+format:
+  html:
+    toc: true
+    toc-title: "Inhalt"
+    css: "../../styles.css"
+---
+
+::: {.callout-note appearance="simple"}
+## Die Aufgabe
+
+:::: {.columns column-gap="2em"}
+::: {.column width="70%"}
+Muster wie im Bild unten sieht man an feuerverzinkten Metallen, zum Beispiel an den Masten von Laternen oder Ampeln. Diese Muster entstehen, indem sich beim Erkalten des flüssigen Zinks, von zufällig vorhandenen Kristallisationskeimen aus, Kristalle bilden. Jeder Keim hat eine bestimmte Orientierung. Um ihn herum wächst ein Kristall mit der gleichen Orientierung, bis er auf andere Kristalle trifft. Kristalle unterschiedlicher Orientierung reflektieren das Licht unterschiedlich und erscheinen so unterschiedlich hell.
+:::
+::: {.column width="30%"}
+![Feuerverzinktes Metall](https://upload.wikimedia.org/wikipedia/commons/c/c4/Feuerverzinkte_Oberfl%C3%A4che.jpg)
+:::
+::::
+:::
+
+## Unser Ansatz: Simulation von Kristallwachstum
+
+Um die einzigartigen Muster zu simulieren, die bei der Feuerverzinkung entstehen, verwenden wir einen Algorithmus, der das natürliche Wachstum von Kristallen nachahmt:
+
+1. **Zufällige Keimbildung**: Wir starten mit einigen zufällig platzierten Kristallisationskeimen.
+2. **Gerichtetes Wachstum**: Jeder Kristall wächst in eine zufällige Richtung mit einer Farbe.
+3. **Konkurrenz um Raum**: Kristalle wachsen, bis sie auf andere Kristalle treffen und dann stoppen.
+4. **Gewichtete Ausbreitung**: Die Wachstumsrichtung kann durch Parameter gesteuert werden, um verschiedene Muster zu erzeugen.
+
+### Die Hauptschritte des Algorithmus:
+
+1. **Initialisierung**: Platzieren einer konfigurierbaren Anzahl von Kristallisationskeimen mit zufälligen Positionen und Orientierungen.
+2. **Wachstum**: Iteratives Ausbreiten der Kristalle in verschiedene Richtungen mit gewichteten Wahrscheinlichkeiten.
+3. **Rendering**: Visualisierung der Kristalle auf einem Canvas, wobei verschiedene Orientierungen durch unterschiedliche Farben dargestellt werden.
+
+## Implementierung der Lösung
+
+Unsere Implementierung verwendet ObservableJS, um eine interaktive Visualisierung zu erstellen. Der Kern des Algorithmus ist eine Funktion, die das Kristallwachstum simuliert:
+
+```js
+// Kristallwachstums-Simulation - Kernalgorithmus
+function crystalGrowth(parameters) {
+  // 1. Initialisierung der Kristallisationskeime
+  // 2. Wachstumsschleife mit gewichteten Richtungen
+  // 3. Rendering auf Canvas
+}
+```
+
+Die Simulation verwendet folgende Schlüsselkonzepte:
+
+- **Gewichtete Richtungen**: Jede der acht möglichen Wachstumsrichtungen (links, rechts, oben, unten und diagonal) kann individuell gewichtet werden.
+- **Zufällige Kristallbildung**: Neue Kristalle können während der Simulation mit einer kleinen Wahrscheinlichkeit entstehen.
+- **Effiziente Datenstrukturen**: Für die Verfolgung besetzter Positionen und aktiver Wachstumspunkte werden optimierte Datenstrukturen verwendet.
+
+## Interaktive Visualisierung
+
+```{ojs}
+//| label: exercise-fig
+//| fig-cap: "Generiertes Metall"
+//| code-fold: true
+
+// Crystal Growth Simulation - Observable JS version
+
+viewof wNegX = Inputs.range([0, 1], {step: 0.01, value: 0.1, label: "Weight Left"})
+viewof wNegY = Inputs.range([0, 1], {step: 0.01, value: 0.4, label: "Weight Down"})
+viewof wPosX = Inputs.range([0, 1], {step: 0.01, value: 0.1, label: "Weight Right"})
+viewof wPosY = Inputs.range([0, 1], {step: 0.01, value: 0.1, label: "Weight Up"})
+
+viewof wNegXNegY = Inputs.range([0, 1], {step: 0.01, value: 0.05, label: "Weight Top-Left"})
+viewof wNegXPosY = Inputs.range([0, 1], {step: 0.01, value: 0.05, label: "Weight Bottom-Left"})
+viewof wPosXNegY = Inputs.range([0, 1], {step: 0.01, value: 0.05, label: "Weight Top-Right"})
+viewof wPosXPosY = Inputs.range([0, 1], {step: 0.01, value: 0.05, label: "Weight Bottom-Right"})
+
+viewof startCrystals = Inputs.range([1, 200], {step: 1, value: 50, label: "Starting Crystals"})
+viewof pNewCrystal = Inputs.range([0, 0.01], {step: 0.0001, value: 0.001, label: "New Crystal Probability"})
+
+viewof canvasSize = Inputs.range([64, 512], {step: 64, value: 256, label: "Canvas Size"})
+
+// Helper functions for coordinate conversion
+function coordsToIndex(x, y, width) {
+  return y * width + x;
+}
+
+function indexToCoords(index, width) {
+  return {
+    x: index % width,
+    y: Math.floor(index / width)
+  };
+}
+
+// Initialize crystal simulation data structures
+function initializeSimulation(width, height, startCrystals) {
+    // Initialize data array with nulls
+    const data = Array(width * height).fill(null);
+
+    // Use a Set to track occupied positions for faster lookups
+    const occupiedPositions = new Set();
+    const growingPoints = [];
+
+    // Create initial crystals
+    for (let i = 0; i < startCrystals; i++) {
+        let x, y, index;
+
+        // Ensure we don't place crystals on already occupied positions
+        do {
+        x = Math.floor(Math.random() * width);
+        y = Math.floor(Math.random() * height);
+        index = coordsToIndex(x, y, width);
+        } while (occupiedPositions.has(index));
+
+        const color = Math.random() * 255;
+        const crystal = { x, y, color };
+
+        data[index] = crystal;
+        occupiedPositions.add(index);
+        growingPoints.push(crystal);
+    }
+
+    return { data, occupiedPositions, growingPoints };
+}
+
+// Create direction vectors with weights
+function createDirections(wNegX, wNegY, wPosX, wPosY, wNegXNegY, wNegXPosY, wPosXNegY, wPosXPosY) {
+    return [
+        { dx: -1, dy: 0, w: wNegX },    // left
+        { dx: 1, dy: 0, w: wPosX },     // right
+        { dx: 0, dy: -1, w: wPosY },    // up
+        { dx: 0, dy: 1, w: wNegY },     // down
+        { dx: -1, dy: -1, w: wNegXNegY }, // top-left
+        { dx: -1, dy: 1, w: wNegXPosY },  // bottom-left
+        { dx: 1, dy: -1, w: wPosXNegY },  // top-right
+        { dx: 1, dy: 1, w: wPosXPosY }    // bottom-right
+    ];
+}
+
+// Attempt to create a new random crystal
+function tryCreateRandomCrystal(data, occupiedPositions, queue, width, height) {
+    for (let i = 0; i < 100; i++) {
+        // Randomly select a position
+        const randomIndex = Math.floor(Math.random() * data.length);
+        if (occupiedPositions.has(randomIndex)) continue;
+
+        const { x: nX, y: nY } = indexToCoords(randomIndex, width);
+        const newCrystal = {
+        color: Math.random() * 255,
+        x: nX,
+        y: nY
+        };
+
+        // Update data structure
+        const index = coordsToIndex(nX, nY, width);
+        data[index] = newCrystal;
+        occupiedPositions.add(index);
+        queue.push(newCrystal);
+        return true;
+    }
+    return false;
+}
+
+// Process one crystal's growth
+function processCrystalGrowth(crystal, directions, data, occupiedPositions, queue, width, height) {
+    const { x, y, color } = crystal;
+
+    // Shuffle directions once per crystal
+    const shuffledDirs = [...directions].sort(() => Math.random() - 0.5);
+
+    let hasFound = false;
+    let hasSkipped = false;
+
+    for (const { dx, dy, w } of shuffledDirs) {
+        const nX = x + dx;
+        const nY = y + dy;
+
+        // Boundary check
+        if (nX < 0 || nX >= width || nY < 0 || nY >= height) {
+        continue;
+        }
+
+        const index = coordsToIndex(nX, nY, width);
+
+        // Check if position is already occupied
+        if (occupiedPositions.has(index)) {
+        continue;
+        }
+
+        if (Math.random() > w) {
+        hasSkipped = true;
+        continue;
+        }
+
+        // Create new crystal
+        const newCrystal = { x: nX, y: nY, color };
+
+        // Update data structures
+        data[index] = newCrystal;
+        occupiedPositions.add(index);
+        queue.push(crystal);    // Add original crystal back to queue
+        queue.push(newCrystal); // Add new crystal to queue
+
+        hasFound = true;
+        break;
+    }
+
+    return { hasFound, hasSkipped };
+}
+
+// Render crystal data to canvas
+function renderCrystals(data, occupiedPositions, width, height) {
+    const canvas = DOM.canvas(width, height);
+    const ctx = canvas.getContext("2d");
+
+    // Create image data
+    const imgData = ctx.createImageData(width, height);
+    const buffer = imgData.data;
+
+    // Fill with default color first (red for empty spaces)
+    for (let i = 0; i < width * height; i++) {
+        const offset = i * 4;
+        buffer[offset] = 255;     // R
+        buffer[offset + 1] = 0;   // G
+        buffer[offset + 2] = 0;   // B
+        buffer[offset + 3] = 255; // A
+    }
+
+    // Only process occupied positions
+    for (const index of occupiedPositions) {
+        const crystal = data[index];
+        const color = crystal.color;
+        const shifted = Math.min(255, color + 10);
+
+        const offset = index * 4;
+        buffer[offset] = color;     // R
+        buffer[offset + 1] = shifted; // G
+        buffer[offset + 2] = shifted; // B
+        // Alpha already set to 255
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+    return canvas;
+}
+
+// Main simulation function
+function crystalGrowth(wNegX, wNegY, wPosX, wPosY, wNegXNegY, wNegXPosY, wPosXNegY, wPosXPosY,
+                    startCrystals, pNewCrystal, canvasSize) {
+    // Canvas dimensions
+    const width = canvasSize;
+    const height = canvasSize;
+
+    // Initialize simulation
+    const { data, occupiedPositions, growingPoints } = initializeSimulation(width, height, startCrystals);
+
+    // Create direction vectors
+    const directions = createDirections(wNegX, wNegY, wPosX, wPosY, wNegXNegY, wNegXPosY, wPosXNegY, wPosXPosY);
+
+    // Process growing points using a queue
+    const queue = [...growingPoints];
+    growingPoints.length = 0; // Clear the original array
+
+    // Growth algorithm
+    while (queue.length > 0 || data.some(crystal => crystal === null)) {
+        // Try to create a new random crystal
+        if (Math.random() < pNewCrystal) {
+        if (tryCreateRandomCrystal(data, occupiedPositions, queue, width, height)) {
+            continue;
+        }
+        }
+
+        // No more crystals to grow
+        if (queue.length === 0) break;
+
+        // Get next crystal from queue
+        const crystal = queue.shift();
+
+        // Process this crystal's growth
+        const { hasFound, hasSkipped } = processCrystalGrowth(
+            crystal,
+            directions,
+            data,
+            occupiedPositions,
+            queue,
+            width,
+            height
+        );
+
+        // If we skipped some directions but didn't grow, give this crystal another chance later
+        if (!hasFound && hasSkipped) {
+        queue.push(crystal);
+        }
+    }
+
+    // Render the result
+    return renderCrystals(data, occupiedPositions, width, height);
+}
+
+// Run the simulation with the current parameter values
+crystalGrowth(wNegX, wNegY, wPosX, wPosY, wNegXNegY, wNegXPosY, wPosXNegY, wPosXPosY,
+    startCrystals, pNewCrystal, canvasSize)
+```
+
+## Diskussion des Ansatzes
+
+Die implementierte Simulation ermöglicht es, die charakteristischen Muster von feuerverzinktem Metall realistisch nachzubilden. Unser Ansatz hat folgende Eigenschaften:
+
+1. **Interaktivität**: Durch die Steuerelemente können Benutzer verschiedene Parameter anpassen und unmittelbar die Auswirkungen auf das resultierende Muster beobachten.
+2. **Effizienz**: Die Verwendung optimierter Datenstrukturen ermöglicht eine flüssige Simulation auch bei größeren Canvas-Größen.
+3. **Realismus**: Die zufällige Keimbildung und das konkurrierende Wachstum der Kristalle ahmen die natürlichen Prozesse nach, die bei der Feuerverzinkung auftreten.
+
+### Mögliche Erweiterungen
+
+Für eine noch realistischere Simulation könnten folgende Aspekte hinzugefügt werden:
+
+- **Temperaturgradienten**: Simulation der Abkühlung des Metalls, die die Kristallbildung beeinflusst
+- **Materialverunreinigungen**: Simulation von Störstellen, die das Wachstumsmuster beeinflussen
+- **3D-Visualisierung**: Erweiterung auf eine dreidimensionale Darstellung für noch realistischere Ergebnisse
+- **Physikalisch basierte Rendering-Techniken**: Verbesserte Darstellung der Lichtreflexionen an den Kristalloberflächen
