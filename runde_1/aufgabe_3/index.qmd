@@ -33,6 +33,13 @@ Hierbei wurden der 1. und der 3. Spaltenblock
 sowie die 5. und die 6. Zeile vertauscht und die
 Ziffern wie folgt umbenannt:
 1 → 2, 2 → 3, … , 8 → 9, 9 → 1.
+
+
+Hilf Rudi, indem du ein Programm schreibst, das
+zwei Sudokus einliest und überprüft, ob sie Varianten
+voneinander sind. Wenn ja, soll das Programm
+Umformungen ausgeben, mit denen das eine aus
+dem anderen Sudoku erzeugt werden kann.
 :::
 
 ## Unser Ansatz
