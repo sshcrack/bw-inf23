@@ -57,7 +57,7 @@
         "\n",
         "## Dateien"
       ],
-      "id": "3ab4215a"
+      "id": "e90824e9"
     },
     {
       "cell_type": "code",
@@ -94,7 +94,7 @@
         "\n",
         "Unsere Implementierung verwendet die `re`-Bibliothek in Python, um reguläre Ausdrücke zu verarbeiten:"
       ],
-      "id": "a1c3bd3e"
+      "id": "34595439"
     },
     {
       "cell_type": "code",
@@ -120,7 +120,7 @@
       "source": [
         "## Lösung"
       ],
-      "id": "5fea46ee"
+      "id": "6c44df33"
     },
     {
       "cell_type": "code",
@@ -136,10 +136,12 @@
         "questions: list[str] = []\n",
         "for i in range(0, 6):\n",
         "    file_name = \"files/stoerung\" + str(i) + \".txt\"\n",
-        "    f = open(file_name)\n",
-        "    questions.append(f.read())\n",
+        "    with open(file_name) as f:\n",
+        "        questions.append(f.read())\n",
         "\n",
-        "base_text = open(\"files/Alice_im_Wunderland.txt\").read().lower()\n",
+        "base_text = \"\"\n",
+        "with open(\"files/Alice_im_Wunderland.txt\") as b:\n",
+        "    base_text = b.read().lower()\n",
         "\n",
         "for i, question in enumerate(questions):\n",
         "    parts = question.split(\" \")\n",
@@ -195,15 +197,14 @@
         "- Mehrere mögliche Treffer anzeigen und bewerten\n",
         "- Sprachmodelle einsetzen, um die wahrscheinlichste Vervollständigung zu finden"
       ],
-      "id": "21bc2148"
+      "id": "355f5884"
     }
   ],
   "metadata": {
     "kernelspec": {
-      "name": "python3",
+      "display_name": "Python 3",
       "language": "python",
-      "display_name": "Python 3 (ipykernel)",
-      "path": "/home/hendrik/Documents/quarto/coding-adventures/.venv/share/jupyter/kernels/python3"
+      "name": "python3"
     }
   },
   "nbformat": 4,

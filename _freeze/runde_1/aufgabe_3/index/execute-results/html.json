@@ -1,0 +1,12 @@
+{
+  "hash": "94668e318253dde839f18ef71699127c",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"3. Aufgabe: Sudokopie\"\nformat:\n    html:\n        toc: true\n        toc-title: \"Inhalt\"\n        css: \"../../styles.css\"\n---\n\n::: {.callout-note appearance=\"simple\"}\n## Die Aufgabe\nRudi ist gar nicht mehr begeistert von den Sudokus\nseiner Rätselzeitung: Er hat den starken Verdacht, dass\ndie Redaktion die Sudoku-Aufgaben immer wiederverwendet! Die Rätsel sehen zwar unterschiedlich\naus, aber der Lösungsweg wiederholt sich erkennbar.\nEr möchte nun seinen Verdacht nachweisen.\nRudi überlegt sich, dass man aus einem Sudoku sehr\nviele Varianten erzeugen kann, indem man eine oder\nmehrere der folgenden Umformungen durchführt:\n\n- Permutation (Umordnung) der drei Spalten innerhalb der Spaltenblöcke.\n- Permutation der drei Spaltenblöcke.\n- Permutation der drei Zeilen innerhalb der Zeilenblöcke.\n- Permutation der drei Zeilenblöcke.\n- 90-Grad-Rotation im Uhrzeigersinn.\n- Umbenennen der Ziffern 1 bis 9 (z.B. alle ‚8‘en und ‚3‘en vertauschen).\n\nSo sind zum Beispiel diese beiden Rätsel Varianten\nvoneinander:\n\n![Sudoku](./sudoku.png)\nHierbei wurden der 1. und der 3. Spaltenblock\nsowie die 5. und die 6. Zeile vertauscht und die\nZiffern wie folgt umbenannt:\n1 → 2, 2 → 3, … , 8 → 9, 9 → 1.\n\n## Lösung\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

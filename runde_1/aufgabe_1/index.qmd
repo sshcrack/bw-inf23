@@ -99,10 +99,12 @@ import re
 questions: list[str] = []
 for i in range(0, 6):
     file_name = "files/stoerung" + str(i) + ".txt"
-    f = open(file_name)
-    questions.append(f.read())
+    with open(file_name) as f:
+        questions.append(f.read())
 
-base_text = open("files/Alice_im_Wunderland.txt").read().lower()
+base_text = ""
+with open("files/Alice_im_Wunderland.txt") as b:
+    base_text = b.read().lower()
 
 for i, question in enumerate(questions):
     parts = question.split(" ")

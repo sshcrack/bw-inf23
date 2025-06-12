@@ -1,0 +1,40 @@
+---
+title: "3. Aufgabe: Sudokopie"
+format:
+    html:
+        toc: true
+        toc-title: "Inhalt"
+        css: "../../styles.css"
+---
+
+::: {.callout-note appearance="simple"}
+## Die Aufgabe
+Rudi ist gar nicht mehr begeistert von den Sudokus
+seiner Rätselzeitung: Er hat den starken Verdacht, dass
+die Redaktion die Sudoku-Aufgaben immer wiederverwendet! Die Rätsel sehen zwar unterschiedlich
+aus, aber der Lösungsweg wiederholt sich erkennbar.
+Er möchte nun seinen Verdacht nachweisen.
+Rudi überlegt sich, dass man aus einem Sudoku sehr
+viele Varianten erzeugen kann, indem man eine oder
+mehrere der folgenden Umformungen durchführt:
+
+- Permutation (Umordnung) der drei Spalten innerhalb der Spaltenblöcke.
+- Permutation der drei Spaltenblöcke.
+- Permutation der drei Zeilen innerhalb der Zeilenblöcke.
+- Permutation der drei Zeilenblöcke.
+- 90-Grad-Rotation im Uhrzeigersinn.
+- Umbenennen der Ziffern 1 bis 9 (z.B. alle ‚8‘en und ‚3‘en vertauschen).
+
+So sind zum Beispiel diese beiden Rätsel Varianten
+voneinander:
+
+![Sudoku](./sudoku.png)
+Hierbei wurden der 1. und der 3. Spaltenblock
+sowie die 5. und die 6. Zeile vertauscht und die
+Ziffern wie folgt umbenannt:
+1 → 2, 2 → 3, … , 8 → 9, 9 → 1.
+
+## Lösung
+```{python}
+
+```
