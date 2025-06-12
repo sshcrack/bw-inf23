@@ -33,6 +33,7 @@ Hierbei wurden der 1. und der 3. Spaltenblock
 sowie die 5. und die 6. Zeile vertauscht und die
 Ziffern wie folgt umbenannt:
 1 → 2, 2 → 3, … , 8 → 9, 9 → 1.
+:::
 
 ## Lösungsansatz
 Die Lösung zu diesem Problem ist etwas länger geworden, der gesamte Code ist [hier](https://github.com/sshcrack/bw-inf23/tree/master/runde_1/aufgabe_3/solution-rust). Grundsätzlich funktioniert der Algorithmus wie folgt:
