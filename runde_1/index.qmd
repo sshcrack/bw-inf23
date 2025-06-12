@@ -57,6 +57,12 @@ Bei dieser Aufgabe geht es um eine Variante des klassischen Sudoku-Puzzles. Sudo
 
 [Zur vollständigen Lösung →](./aufgabe_3/)
 
+### Aufgabe 4: Fahrradwerkstatt
+
+Diese Aufgabe beschäftigt sich mit der Optimierung von Reparaturaufträgen in einer Fahrradwerkstatt. Marc, der Besitzer, muss entscheiden, in welcher Reihenfolge er die Aufträge bearbeiten soll. Die Herausforderung besteht darin, ein Programm zu entwickeln, das verschiedene Strategien zur Auftragsbearbeitung simuliert und vergleicht, um die Wartezeiten für die Kunden zu minimieren.
+
+[Zur vollständigen Lösung →](./aufgabe_4/)
+
 ## Mein Lösungsprozess
 
 Bei der Bearbeitung der Aufgaben bin ich nach folgendem Schema vorgegangen:

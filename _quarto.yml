@@ -14,6 +14,8 @@ website:
             text: 2. Aufgabe
           - href: runde_1/aufgabe_3/index.qmd
             text: 3. Aufgabe
+          - href: runde_1/aufgabe_4/index.qmd
+            text: 4. Aufgabe
 
 format:
   html:

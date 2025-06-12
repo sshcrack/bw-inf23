@@ -22,6 +22,7 @@ In der ersten Runde habe ich folgende Aufgaben bearbeitet:
 - [**Aufgabe 1**](./runde_1/aufgabe_1): Störung - Textanalyse und -rekonstruktion
 - [**Aufgabe 2**](./runde_1/aufgabe_2): Verzinkt
 - [**Aufgabe 3**](./runde_1/aufgabe_3): Sudokopie
+- [**Aufgabe 4**](./runde_1/aufgabe_4): Fahrradwerkstatt
 
 ### 2. Runde
 
