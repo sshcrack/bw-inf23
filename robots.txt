@@ -1,1 +1,1 @@
-Sitemap: https://sshcrack.github.io/bw-inf23/sitemap.xml
+Sitemap: https://bw-inf.sshcrack.me/sitemap.xml
