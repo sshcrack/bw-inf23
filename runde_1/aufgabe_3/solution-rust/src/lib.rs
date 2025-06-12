@@ -32,7 +32,7 @@ pub fn start_backtracking(
 
     let s_col_counts = get_filled_block(second, BlockType::Column);
     let s_row_counts = get_filled_block(second, BlockType::Row);
-    
+
     // Quick early check if grids are already equal
     if first.grid == second.grid {
         return Some(operations);
@@ -48,12 +48,18 @@ pub fn start_backtracking(
                 let col_swaps = possible_same_block_swaps(BlockType::Column, &f_col_counts);
                 let row_swaps = possible_same_block_swaps(BlockType::Row, &f_row_counts);
 
+                let powerset = col_swaps
+                    .into_iter()
+                    .interleave(row_swaps.into_iter())
+                    .powerset()
+                    .collect_vec();
+
                 // println!(
                 //     "Possible column swaps: {:?}\nPossible row swaps: {:?}",
                 //     col_swaps, row_swaps
                 // );
                 //REVIEW Can i really do it like that?
-                for ops in col_swaps {
+                for ops in powerset {
                     let mut clone = first.clone();
                     let mut new_ops = operations.clone();
                     // println!("----------");
@@ -68,24 +74,9 @@ pub fn start_backtracking(
                         return r;
                     }
                 }
-for ops in row_swaps {
-                    let mut clone = first.clone();
-                    let mut new_ops = operations.clone();
-                    // println!("----------");
-                    for o in &ops {
-                        o.apply(&mut clone);
-                    }
 
-                    new_ops.extend_from_slice(&ops);
-                    let r = start_backtracking(clone, second, AlgorithmStage::SwapSingle, new_ops);
-                    // println!("----------");
-                    if r.is_some() {
-                        return r;
-                    }
-                }
                 return None;
             }
-
 
             let col_needed = needed_block_swaps(BlockType::Column, &f_col_counts, &s_col_counts);
             for op in col_needed {

@@ -34,7 +34,248 @@ sowie die 5. und die 6. Zeile vertauscht und die
 Ziffern wie folgt umbenannt:
 1 → 2, 2 → 3, … , 8 → 9, 9 → 1.
 
-## Lösung
-```{python}
+## Lösungsansatz
+Die Lösung zu diesem Problem ist etwas länger geworden, der gesamte Code ist [hier](https://github.com/sshcrack/bw-inf23/tree/master/runde_1/aufgabe_3/solution-rust). Grundsätzlich funktioniert der Algorithmus wie folgt:
 
+### Überblick
+
+Der Algorithmus verwendet einen systematischen Backtracking-Ansatz, um die Transformation eines Sudoku-Rätsels in ein anderes zu ermitteln. Der Prozess ist in der [`solve_sudoku_transformation`-Funktion](https://github.com/sshcrack/bw-inf23/blob/master/runde_1/aufgabe_3/solution-rust/src/lib.rs#L240) implementiert und läuft in drei aufeinanderfolgenden Phasen ab:
+
+```rust
+pub fn solve_sudoku_transformation(first: Sudoku, second: &Sudoku) -> Option<Vec<Operation>> {
+    let mut curr_grid = first;
+    let mut operations = None;
+    for i in 0..4 {
+        let out = start_backtracking(
+            curr_grid.clone(),
+            second,
+            AlgorithmStage::SwapBlocks,
+            vec![Operation::Rotate(i)],
+        );
+        if out.is_some() {
+            operations = out;
+            break; // Found a solution
+        }
+
+        curr_grid = Sudoku::new(rotate_sudoku(&curr_grid.grid));
+    }
+
+    operations
+}
 ```
+
+Die Hauptarbeit wird in der rekursiven [`start_backtracking`-Funktion](https://github.com/sshcrack/bw-inf23/blob/master/runde_1/aufgabe_3/solution-rust/src/lib.rs#L23) erledigt, die durch die verschiedenen Phasen navigiert:
+
+### Die drei Phasen des Algorithmus
+
+1. **Blockwechsel-Phase**: Zuerst werden Operationen ausprobiert, die ganze Blöcke (3×3 Zeilen oder Spalten) miteinander vertauschen. Der Algorithmus analysiert die Verteilung der Zahlen in den Blöcken, indem er zählt, wie viele Zellen in jedem Block besetzt sind. Diese Häufigkeitsverteilung dient als eine Art "Fingerabdruck" für jeden Block, wodurch der Algorithmus effizient bestimmen kann, welche Blöcke potentiell vertauscht werden müssen. Wenn beide Sudokus bereits die gleiche Verteilung von besetzten Zellen in ihren Blöcken haben, generiert der Algorithmus alle möglichen Kombinationen von Blockvertauschungen mit Hilfe der Powerset-Methode:
+
+```rust
+// Code zum Zählen der besetzten Zellen in jedem Block
+let f_col_counts = get_filled_block(&first, BlockType::Column);
+let f_row_counts = get_filled_block(&first, BlockType::Row);
+
+if are_vec_same(&f_col_counts, &s_col_counts)
+    && are_vec_same(&f_row_counts, &s_row_counts)
+{
+    let col_swaps = possible_same_block_swaps(BlockType::Column, &f_col_counts);
+    let row_swaps = possible_same_block_swaps(BlockType::Row, &f_row_counts);
+
+    // Alle möglichen Kombinationen von Blockvertauschungen erzeugen
+    let powerset = col_swaps
+        .into_iter()
+        .interleave(row_swaps.into_iter())
+        .powerset()
+        .collect_vec();
+        
+    for ops in powerset {
+        let mut clone = first.clone();
+        // Alle Operationen in dieser Kombination anwenden
+        for o in &ops {
+            o.apply(&mut clone);
+        }
+        // ...
+    }
+}
+// Wenn nötig, spezifische Blockvertauschungen durchführen
+let col_needed = needed_block_swaps(BlockType::Column, &f_col_counts, &s_col_counts);
+for op in col_needed {
+    let mut clone = first.clone();
+    op.apply(&mut clone);
+    // ...
+}
+```
+
+Die [needed_block_swaps-Funktion](https://github.com/sshcrack/bw-inf23/blob/master/runde_1/aufgabe_3/solution-rust/src/possible_swaps.rs) erzeugt die notwendigen Operationen, um die Blockstruktur zwischen beiden Sudokus anzugleichen.
+
+2. **Einzelwechsel-Phase**: Nach dem Vertauschen ganzer Blöcke werden einzelne Zeilen oder Spalten innerhalb der Blöcke vertauscht. Dies geschieht systematisch durch das Erzeugen aller möglichen Kombinationen von Vertauschungen mit Hilfe von Permutationen:
+
+```rust
+let col_swaps = possible_same_single_swaps(BlockType::Column, &f_col_counts);
+let rol_swaps = possible_same_single_swaps(BlockType::Row, &f_row_counts);
+
+// Alle möglichen Kombinationen von Zeilenvertauschungen testen
+let powerset = col_swaps
+    .into_iter()
+    .interleave(rol_swaps.into_iter())
+    .powerset()
+    .collect_vec();
+
+for ops in powerset {
+    let mut clone = first.clone();
+    // ...
+}
+```
+
+Diese Phase ist in der [`SwapSingle`-Stufe](https://github.com/sshcrack/bw-inf23/blob/master/runde_1/aufgabe_3/solution-rust/src/lib.rs#L111) des Backtracking-Algorithmus implementiert.
+
+3. **Ziffernumbenennung-Phase**: In der letzten Phase werden, falls nötig, Ziffern umbenannt. Der Algorithmus prüft systematisch, welche Zahlen noch nicht übereinstimmen und generiert entsprechende Umbenennungsoperationen:
+
+```rust
+// Finden von Ziffern, die umbenannt werden müssen
+for (y, row) in rows.iter().enumerate() {
+    for (x, numb) in row.iter().enumerate() {
+        let desired = &second.grid[(y, x)];
+        if numb == desired || numb == &0 || desired == &0 {
+            continue; // Bereits übereinstimmend oder leer
+        }
+        
+        change_from = Some(*numb);
+        change_to = Some(*desired);
+        // ...
+    }
+}
+
+// Anwenden der Ziffernumbenennung
+let op = Operation::SwapNumbers(from, to);
+op.apply(&mut clone);
+```
+
+Diese Phase ist in der [`SwapNumbers`-Stufe](https://github.com/sshcrack/bw-inf23/blob/master/runde_1/aufgabe_3/solution-rust/src/lib.rs#L172) implementiert.
+
+### Rotationen und Gesamtstrategie
+
+Vor Beginn des Hauptprozesses werden alle vier möglichen 90-Grad-Rotationen (0°, 90°, 180°, 270°) des ersten Sudokus betrachtet. Für jede Rotation wird der komplette dreistufige Prozess durchgeführt:
+
+```rust
+for i in 0..4 {
+    let out = start_backtracking(
+        curr_grid.clone(),
+        second,
+        AlgorithmStage::SwapBlocks,
+        vec![Operation::Rotate(i)],
+    );
+    // ...
+    curr_grid = Sudoku::new(rotate_sudoku(&curr_grid.grid));
+}
+```
+
+Der Algorithmus verfolgt eine "Teile-und-Herrsche"-Strategie und führt für jede Phase einen rekursiven Backtracking-Ansatz durch. Dies erlaubt es, den riesigen Suchraum aller möglichen Transformationen effizient zu durchsuchen. Die [Operation-Enum](https://github.com/sshcrack/bw-inf23/blob/master/runde_1/aufgabe_3/solution-rust/src/operation.rs#L8) repräsentiert alle möglichen Transformationen:
+
+```rust
+pub enum Operation {
+    SwapBlock(BlockType, usize, usize),
+    SwapSingle(BlockType, usize, usize),
+    SwapSpecial(BlockType, (usize, usize), (usize, usize)),
+    SwapNumbers(u8, u8),
+    Rotate(u8)
+}
+```
+
+Sobald eine Folge von Operationen gefunden wird, die das erste Sudoku in das zweite transformiert, wird diese als Lösung zurückgegeben und in benutzerfreundliche Meldungen formatiert:
+
+```rust
+// Formatierung der Ergebnisse
+pub fn format_operations(operations: &[Operation]) -> Vec<String> {
+    let mut result = Vec::new();
+    for op in operations {
+        match op {
+            Operation::SwapBlock(block_type, a, b) => {
+                result.push(format!(
+                    "Swap {:?} block {} with block {}",
+                    block_type, a, b
+                ));
+            }
+            // Weitere Formate...
+        }
+    }
+    result
+}
+```
+
+Falls keine Transformation existiert, die das erste Sudoku in das zweite überführt, wird dies ebenfalls erkannt und entsprechend gemeldet.
+
+## Lösungen
+
+Im Folgenden sind die Ergebnisse für verschiedene Testfälle aufgeführt. Die Ausgaben zeigen die Sequenz von Operationen, die nötig sind, um das erste Sudoku in das zweite zu transformieren.
+
+### Sudoku 0
+
+Für dieses Sudoku-Paar sind folgende Transformationen nötig:
+
+1. **Spaltenoperationen**:
+   - Vertauschen der Spaltenblöcke (3,5) und (4,5)
+   - Vertauschen der einzelnen Spalten 0 mit 1, dann 0 mit 2, und 6 mit 8
+
+2. **Zeilenoperationen**:
+   - Vertauschen der einzelnen Zeilen 0 mit 1 und 7 mit 8
+
+### Sudoku 1
+
+Dieses Sudoku-Paar erfordert eine Kombination aus Rotation und Vertauschungen:
+
+1. **Rotation**: 90 Grad im Uhrzeigersinn
+
+2. **Blockoperationen**:
+   - Spaltenblock 0 mit Block 1 vertauschen
+   - Zeilenblock 0 mit Block 1 vertauschen
+   - Zeilenblock 1 mit Block 2 vertauschen
+
+3. **Einzelne Spalten**: Vertauschen der Spalten 0 mit 2, 3 mit 5, und 6 mit 8
+
+### Sudoku 2
+
+Bei diesem Paar ist eine komplexere Transformation mit Blockvertauschungen, Zeilenvertauschungen und mehreren Ziffernumbennungen erforderlich:
+
+1. **Blockoperationen**: Spaltenblock 0 mit Block 2 vertauschen
+
+2. **Zeilenoperationen**: Vertauschen der Zeilen 4 und 5
+
+3. **Ziffernumbenennung**: Eine Reihe von Ziffernvertauschungen:
+   - 4 ↔ 5
+   - 9 ↔ 1
+   - 8 ↔ 9
+   - 4 ↔ 6
+   - 3 ↔ 4
+   - 8 ↔ 2
+   - 3 ↔ 7
+   - 3 ↔ 8
+
+### Sudoku 3
+
+Für dieses Sudoku-Paar wurde **keine Lösung gefunden**. Dies bedeutet, dass die beiden Sudokus keine Varianten voneinander sind und nicht durch die erlaubten Transformationen ineinander überführt werden können.
+
+### Sudoku 4
+
+Dies ist das komplexeste Beispiel mit einer Vielzahl von Transformationen:
+
+1. **Rotation**: 90 Grad im Uhrzeigersinn
+
+2. **Blockoperationen**:
+   - Spaltenblock 0 mit Block 1 vertauschen
+   - Zeilenblock 1 mit Block 2 vertauschen
+
+3. **Einzeloperationen**:
+   - Spalten 4 mit 5 und 7 mit 8 vertauschen
+   - Zeilen 0 mit 2, 3 mit 5, und 6 mit 8 vertauschen
+
+4. **Ziffernumbenennung**:
+   - 4 ↔ 9
+   - 8 ↔ 3
+   - 5 ↔ 2
+   - 8 ↔ 1
+   - 4 ↔ 6
+   - 5 ↔ 8
+   - 5 ↔ 4
+
+Diese Ergebnisse zeigen die Vielfalt der möglichen Transformationen. Während für die Sudokus 0, 1, 2 und 4 Transformationen gefunden wurden, gibt es für Sudoku 3 keine Möglichkeit, die beiden Rätsel ineinander zu überführen. Dies bestätigt, dass nicht alle Sudoku-Rätsel Varianten voneinander sein müssen.

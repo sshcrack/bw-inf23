@@ -24,14 +24,14 @@ pub fn needed_single_swaps(
                     if i == inner_idx {
                         return false;
                     }
-                    
+
                     let inner_count = &block[i];
                     let swap_desired = &second_counts[block_idx][i];
-                    
+
                     // All conditions combined for early rejection
-                    inner_count != swap_desired && 
-                    swap_desired == &count && 
-                    inner_count == desired_count
+                    inner_count != swap_desired
+                        && swap_desired == &count
+                        && inner_count == desired_count
                 })
                 .next();
 
@@ -116,10 +116,10 @@ pub fn possible_same_block_swaps(
     first_counts: &Vec<Vec<usize>>,
 ) -> HashSet<Operation> {
     let mut operations = HashSet::new();
-    
+
     // Pre-compute frequency maps to avoid redundant calculations
     let freq_maps: Vec<_> = first_counts.iter().map(get_freq_map).collect();
-    
+
     for (i, _) in first_counts.iter().enumerate() {
         let freq_a = &freq_maps[i];
         for (j, _) in first_counts.iter().enumerate() {
@@ -145,20 +145,19 @@ pub fn possible_same_single_swaps(
     first_counts: &Vec<Vec<usize>>,
 ) -> HashSet<Operation> {
     let mut operations = HashSet::with_capacity(first_counts.len() * 3); // Pre-allocate space
-    
+
     for (block_idx, block) in first_counts.iter().enumerate() {
         for (inner_idx, count) in block.iter().enumerate() {
             let idx = block_idx * 3 + inner_idx;
-            
+
             // Use iterator for better performance
-            let swap_candidates: Vec<_> = block.iter()
+            let swap_candidates: Vec<_> = block
+                .iter()
                 .enumerate()
-                .filter(|(i, inner_count)| {
-                    *i != inner_idx && **inner_count == *count
-                })
+                .filter(|(i, inner_count)| *i != inner_idx && **inner_count == *count)
                 .map(|(i, _)| i)
                 .collect();
-                
+
             for can_swap_to in swap_candidates {
                 let swap_idx = block_idx * 3 + can_swap_to;
                 operations.insert(Operation::single(block_type, idx, swap_idx));

@@ -57,7 +57,7 @@
         "\n",
         "## Dateien"
       ],
-      "id": "e90824e9"
+      "id": "619dae09"
     },
     {
       "cell_type": "code",
@@ -94,7 +94,7 @@
         "\n",
         "Unsere Implementierung verwendet die `re`-Bibliothek in Python, um reguläre Ausdrücke zu verarbeiten:"
       ],
-      "id": "34595439"
+      "id": "75d22064"
     },
     {
       "cell_type": "code",
@@ -120,7 +120,7 @@
       "source": [
         "## Lösung"
       ],
-      "id": "6c44df33"
+      "id": "7395919c"
     },
     {
       "cell_type": "code",
@@ -197,7 +197,7 @@
         "- Mehrere mögliche Treffer anzeigen und bewerten\n",
         "- Sprachmodelle einsetzen, um die wahrscheinlichste Vervollständigung zu finden"
       ],
-      "id": "355f5884"
+      "id": "c1cb3361"
     }
   ],
   "metadata": {
