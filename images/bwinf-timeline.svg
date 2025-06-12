@@ -1,0 +1,40 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+  <!-- Background -->
+  <rect width="600" height="200" fill="#f8f9fa" rx="10"/>
+  
+  <!-- Timeline line -->
+  <line x1="50" y1="100" x2="550" y2="100" stroke="#4682B4" stroke-width="4"/>
+  
+  <!-- Milestones -->
+  <g>
+    <!-- First round -->
+    <circle cx="100" cy="100" r="15" fill="#4682B4"/>
+    <text font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white" x="100" y="104">1</text>
+    <text font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#2c3e50" x="100" y="140">Runde 1</text>
+    <text font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#555" x="100" y="160">Sep-Nov 2023</text>
+    
+    <!-- Second round -->
+    <circle cx="300" cy="100" r="15" fill="#4682B4"/>
+    <text font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white" x="300" y="104">2</text>
+    <text font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#2c3e50" x="300" y="140">Runde 2</text>
+    <text font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#555" x="300" y="160">Jan-Apr 2024</text>
+    
+    <!-- Final round -->
+    <circle cx="500" cy="100" r="15" fill="#4682B4"/>
+    <text font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white" x="500" y="104">3</text>
+    <text font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#2c3e50" x="500" y="140">Endrunde</text>
+    <text font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#555" x="500" y="160">Sep 2024</text>
+  </g>
+  
+  <!-- Title -->
+  <text font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50" x="300" y="40" text-anchor="middle">
+    Zeitplan 41. Bundeswettbewerb Informatik
+  </text>
+  
+  <!-- "You are here" indicator -->
+  <polygon points="100,70 110,60 90,60" fill="#d63384"/>
+  <text font-family="Arial, sans-serif" font-size="12" font-style="italic" text-anchor="middle" fill="#d63384" x="100" y="50">
+    Sie sind hier
+  </text>
+</svg>

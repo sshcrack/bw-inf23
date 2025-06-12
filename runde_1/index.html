@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1. Aufgabe: Die Lückenhaften Zitate</title>
+<title>1. Runde - Bundeswettbewerb Informatik 2023/2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -130,8 +95,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-runde">    
         <li>
-    <a class="dropdown-item" href="../aufgabe_1/index.html">
+    <a class="dropdown-item" href="../runde_1/aufgabe_1/index.html">
  <span class="dropdown-text">1. Aufgabe</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../runde_1/aufgabe_2/index.html">
+ <span class="dropdown-text">2. Aufgabe</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../runde_1/aufgabe_3/index.html">
+ <span class="dropdown-text">3. Aufgabe</span></a>
   </li>  
     </ul>
   </li>
@@ -151,14 +124,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhalt</h2>
    
   <ul>
-  <li><a href="#unser-ansatz-textmustersuche-mit-regulären-ausdrücken" id="toc-unser-ansatz-textmustersuche-mit-regulären-ausdrücken" class="nav-link active" data-scroll-target="#unser-ansatz-textmustersuche-mit-regulären-ausdrücken">Unser Ansatz: Textmustersuche mit Regulären Ausdrücken</a>
+  <li><a href="#überblick-zur-1.-runde" id="toc-überblick-zur-1.-runde" class="nav-link active" data-scroll-target="#überblick-zur-1.-runde">Überblick zur 1. Runde</a>
   <ul class="collapse">
-  <li><a href="#die-hauptschritte-des-algorithmus" id="toc-die-hauptschritte-des-algorithmus" class="nav-link" data-scroll-target="#die-hauptschritte-des-algorithmus">Die Hauptschritte des Algorithmus:</a></li>
+  <li><a href="#über-den-bundeswettbewerb-informatik" id="toc-über-den-bundeswettbewerb-informatik" class="nav-link" data-scroll-target="#über-den-bundeswettbewerb-informatik">Über den Bundeswettbewerb Informatik</a></li>
+  <li><a href="#die-aufgaben-im-detail" id="toc-die-aufgaben-im-detail" class="nav-link" data-scroll-target="#die-aufgaben-im-detail">Die Aufgaben im Detail</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-1-störung" id="toc-aufgabe-1-störung" class="nav-link" data-scroll-target="#aufgabe-1-störung">Aufgabe 1: Störung</a></li>
+  <li><a href="#aufgabe-2-verzinkt" id="toc-aufgabe-2-verzinkt" class="nav-link" data-scroll-target="#aufgabe-2-verzinkt">Aufgabe 2: Verzinkt</a></li>
+  <li><a href="#aufgabe-3-sudokopie" id="toc-aufgabe-3-sudokopie" class="nav-link" data-scroll-target="#aufgabe-3-sudokopie">Aufgabe 3: Sudokopie</a></li>
   </ul></li>
-  <li><a href="#dateien" id="toc-dateien" class="nav-link" data-scroll-target="#dateien">Dateien</a></li>
-  <li><a href="#implementierung-der-lösung" id="toc-implementierung-der-lösung" class="nav-link" data-scroll-target="#implementierung-der-lösung">Implementierung der Lösung</a></li>
-  <li><a href="#lösung" id="toc-lösung" class="nav-link" data-scroll-target="#lösung">Lösung</a></li>
-  <li><a href="#diskussion-des-ansatzes" id="toc-diskussion-des-ansatzes" class="nav-link" data-scroll-target="#diskussion-des-ansatzes">Diskussion des Ansatzes</a></li>
+  <li><a href="#mein-lösungsprozess" id="toc-mein-lösungsprozess" class="nav-link" data-scroll-target="#mein-lösungsprozess">Mein Lösungsprozess</a></li>
+  <li><a href="#technologien-und-werkzeuge" id="toc-technologien-und-werkzeuge" class="nav-link" data-scroll-target="#technologien-und-werkzeuge">Technologien und Werkzeuge</a></li>
+  <li><a href="#tipps-für-andere-teilnehmer" id="toc-tipps-für-andere-teilnehmer" class="nav-link" data-scroll-target="#tipps-für-andere-teilnehmer">Tipps für andere Teilnehmer</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -167,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">1. Aufgabe: Die Lückenhaften Zitate</h1>
+<h1 class="title">1. Runde - Bundeswettbewerb Informatik 2023/2024</h1>
 </div>
 
 
@@ -184,164 +162,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="überblick-zur-1.-runde" class="level1">
+<h1>Überblick zur 1. Runde</h1>
+<p>Die erste Runde des 41. Bundeswettbewerbs Informatik bietet fünf spannende Aufgaben, aus denen Teilnehmer drei auswählen und bearbeiten können. Auf dieser Seite gebe ich einen Überblick über die Aufgaben und meine Lösungsansätze.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Die Herausforderung
+<span class="screen-reader-only">Note</span>Die 1. Runde im Überblick
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Alice und Bob tauschen in ihrem persönlichen Chat gerne Sätze aus, die Zitate aus ihrem Lieblings- buch sind. Leider hat Trudi einen Weg gefunden, Lücken in die Sätze zu reißen und ganze Wörter verschwinden zu lassen. So empfing Bob vor Kurzem diesen Lückensatz von Alice, den er nicht verstehen konnte:</p>
-<p><code>das ... mir ... ... ... vor</code></p>
-<p>Er musste lange im Buch blättern, bis er diese passende Stelle darin fand:</p>
-<p><code>das kommt mir gar nicht richtig vor</code></p>
-<p>Aber er ist unsicher, denn schließlich könnte es ja noch andere passende Stellen geben. Alice und Bob überlegen, wie sie das Problem lösen können. Den Text des Lieblingsbuches gibt es auch digital. Da könnte es doch möglich sein, sich die Suche nach passenden Stellen von einem Computerprogramm abnehmen zu lassen.</p>
-</div>
-</div>
-<section id="unser-ansatz-textmustersuche-mit-regulären-ausdrücken" class="level2">
-<h2 class="anchored" data-anchor-id="unser-ansatz-textmustersuche-mit-regulären-ausdrücken">Unser Ansatz: Textmustersuche mit Regulären Ausdrücken</h2>
-<p>Das Problem, das Alice und Bob haben, ist ein klassisches Mustererkennungsproblem: Wie findet man einen Teilsatz, bei dem nur einige Wörter bekannt sind, während andere Wörter fehlen?</p>
-<p>Für die Lösung bietet sich die Verwendung von <strong>regulären Ausdrücken</strong> (Regular Expressions, kurz RegEx) an. Mit RegEx können wir flexible Muster definieren, die genau unserem Problem entsprechen:</p>
-<ol type="1">
-<li>Bekannte Wörter bleiben unverändert im Suchmuster</li>
-<li>Lücken (fehlende Wörter) werden durch einen Platzhalter ersetzt, der “irgendein Wort” repräsentiert</li>
-<li>Die Reihenfolge der Wörter bleibt erhalten</li>
-</ol>
-<section id="die-hauptschritte-des-algorithmus" class="level3">
-<h3 class="anchored" data-anchor-id="die-hauptschritte-des-algorithmus">Die Hauptschritte des Algorithmus:</h3>
-<ol type="1">
-<li><strong>Eingabe lesen</strong>: Wir lesen die “gestörten” Sätze aus den Dateien</li>
-<li><strong>Muster erstellen</strong>: Wir erstellen ein RegEx-Muster, das bekannte Wörter und Lücken enthält</li>
-<li><strong>Suche durchführen</strong>: Wir durchsuchen den Text nach passenden Stellen</li>
-<li><strong>Ergebnisse anzeigen</strong>: Wir zeigen die gefundenen kompletten Sätze an</li>
-</ol>
-</section>
-</section>
-<section id="dateien" class="level2">
-<h2 class="anchored" data-anchor-id="dateien">Dateien</h2>
-<div id="list-files" class="cell" data-execution_count="1">
 <ul>
-<li><a href="files/Alice_im_Wunderland.txt">Alice_im_Wunderland.txt</a></li>
-<li><a href="files/stoerung0.txt">stoerung0.txt</a></li>
-<li><a href="files/stoerung1.txt">stoerung1.txt</a></li>
-<li><a href="files/stoerung2.txt">stoerung2.txt</a></li>
-<li><a href="files/stoerung3.txt">stoerung3.txt</a></li>
-<li><a href="files/stoerung4.txt">stoerung4.txt</a></li>
-<li><a href="files/stoerung5.txt">stoerung5.txt</a></li>
+<li><strong>Zeitraum</strong>: September 2023 bis November 2023</li>
+<li><strong>Aufgabenstellung</strong>: 5 Aufgaben, davon 3 zu bearbeiten</li>
+<li><strong>Einreichung</strong>: Dokumentation und lauffähiger Programmcode</li>
+<li><strong>Bearbeitung</strong>: Einzeln oder im Team (max. 3 Personen)</li>
 </ul>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die Dateien <code>stoerung0.txt</code> bis <code>stoerung5.txt</code> enthalten die lückenhaften Sätze, wobei <code>_</code> für ein fehlendes Wort steht. Die Datei <code>Alice_im_Wunderland.txt</code> enthält den vollständigen Text des Buches.</p>
-</div>
-</div>
+<section id="über-den-bundeswettbewerb-informatik" class="level2">
+<h2 class="anchored" data-anchor-id="über-den-bundeswettbewerb-informatik">Über den Bundeswettbewerb Informatik</h2>
+<p>Der <a href="https://bwinf.de/">Bundeswettbewerb Informatik</a> ist ein anspruchsvoller Programmierwettbewerb für Schülerinnen und Schüler. Er fördert die kreative Auseinandersetzung mit algorithmischen Problemen und die Entwicklung effizienter Lösungsstrategien. Der Wettbewerb wird vom Bundesministerium für Bildung und Forschung gefördert und richtet sich an Jugendliche bis 21 Jahre.</p>
+<p>Die 41. Ausgabe des Wettbewerbs startete im September 2023 mit der ersten Runde, in der die Teilnehmer fünf anspruchsvolle Aufgaben zur Auswahl haben, von denen drei zu bearbeiten sind.</p>
 </section>
-<section id="implementierung-der-lösung" class="level2">
-<h2 class="anchored" data-anchor-id="implementierung-der-lösung">Implementierung der Lösung</h2>
-<p>Unsere Implementierung verwendet die <code>re</code>-Bibliothek in Python, um reguläre Ausdrücke zu verarbeiten:</p>
-<div id="code-explanation" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regex-Muster für ein beliebiges Wort</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>word_pattern <span class="op">=</span> <span class="st">"([a-z])</span><span class="ch">\\</span><span class="st">w+"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Für jede Lücke (_) verwenden wir das Wort-Muster</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Für bekannte Wörter verwenden wir den exakten Text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="die-aufgaben-im-detail" class="level2">
+<h2 class="anchored" data-anchor-id="die-aufgaben-im-detail">Die Aufgaben im Detail</h2>
+<section id="aufgabe-1-störung" class="level3">
+<h3 class="anchored" data-anchor-id="aufgabe-1-störung"><a href="./aufgabe_1/">Aufgabe 1: Störung</a></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./aufgabe_1/files/text-analysis.svg" class="img-fluid figure-img"></p>
+<figcaption>Textanalyse (Quelle: 41. Bundeswettbewerb der Informatik)</figcaption>
+</figure>
 </div>
+<p>Bei dieser Aufgabe geht es um Textmustersuche: Alice und Bob haben das Problem, dass in ihrem Chat Nachrichten mit Lücken ankommen. Die Herausforderung besteht darin, ein Programm zu entwickeln, das im digitalen Text ihres Lieblingsbuches nach passenden Stellen sucht, um die Lücken zu füllen.</p>
+<p><strong>Mein Ansatz</strong>: Ich habe reguläre Ausdrücke (RegEx) verwendet, um Muster mit Lücken zu definieren und den Text effizient zu durchsuchen. Das Programm kann mehrere mögliche Übereinstimmungen finden und nach verschiedenen Kriterien sortieren.</p>
+<p><a href="./aufgabe_1/">Zur vollständigen Lösung →</a></p>
 </section>
-<section id="lösung" class="level2">
-<h2 class="anchored" data-anchor-id="lösung">Lösung</h2>
-<div id="exercise-fig" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>questions: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> []</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">6</span>):</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    file_name <span class="op">=</span> <span class="st">"files/stoerung"</span> <span class="op">+</span> <span class="bu">str</span>(i) <span class="op">+</span> <span class="st">".txt"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="bu">open</span>(file_name)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    questions.append(f.read())</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>base_text <span class="op">=</span> <span class="bu">open</span>(<span class="st">"files/Alice_im_Wunderland.txt"</span>).read().lower()</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, question <span class="kw">in</span> <span class="bu">enumerate</span>(questions):</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    parts <span class="op">=</span> question.split(<span class="st">" "</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    regex_parts <span class="op">=</span> []</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> part <span class="kw">in</span> parts:</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> part <span class="op">==</span> <span class="st">"_"</span>:</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            regex_parts.append(<span class="st">"([a-z])</span><span class="ch">\\</span><span class="st">w+"</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            regex_parts.append(part)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    regex <span class="op">=</span> <span class="st">" "</span>.join(regex_parts)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    matches <span class="op">=</span> re.search(regex, base_text, re.IGNORECASE)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> matches <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"No match found for:"</span>, regex)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> matches.group(<span class="dv">0</span>).split(<span class="st">" "</span>)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Lösung zu Störung </span><span class="sc">{</span>i<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n\n</span><span class="ss">**Lückensatz:** `</span><span class="sc">{</span>question<span class="sc">}</span><span class="ss">`</span><span class="ch">\n</span><span class="ss">"</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"**Vollständiger Satz:**"</span>)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j, part <span class="kw">in</span> <span class="bu">enumerate</span>(parts):</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> part <span class="op">!=</span> <span class="st">"_"</span>:</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            result.append(part)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>            result.append(<span class="ss">f"**</span><span class="sc">{</span>m[j]<span class="sc">}</span><span class="ss">**"</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"`</span><span class="sc">{</span><span class="st">' '</span><span class="sc">.</span>join(result)<span class="sc">}</span><span class="ss">`"</span>)</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">&lt;br&gt;&lt;br&gt;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<p>Lösung zu Störung 0</p>
-<p><strong>Lückensatz:</strong> <code>das _ mir _ _ _ vor</code></p>
-<p><strong>Vollständiger Satz:</strong> <code>das **kommt** mir **gar** **nicht** **richtig** vor</code></p>
-<p><br><br> Lösung zu Störung 1</p>
-<p><strong>Lückensatz:</strong> <code>ich muß _ clara _</code></p>
-<p><strong>Vollständiger Satz:</strong> <code>ich muß **in** clara **verwandelt**</code></p>
-<p><br><br> Lösung zu Störung 2</p>
-<p><strong>Lückensatz:</strong> <code>fressen _ gern _</code></p>
-<p><strong>Vollständiger Satz:</strong> <code>fressen **katzen** gern **spatzen**</code></p>
-<p><br><br> Lösung zu Störung 3</p>
-<p><strong>Lückensatz:</strong> <code>das _ fing _</code></p>
-<p><strong>Vollständiger Satz:</strong> <code>das **spiel** fing **an**</code></p>
-<p><br><br> Lösung zu Störung 4</p>
-<p><strong>Lückensatz:</strong> <code>ein _ _ tag</code></p>
-<p><strong>Vollständiger Satz:</strong> <code>ein **sehr** **schöner** tag</code></p>
-<p><br><br> Lösung zu Störung 5</p>
-<p><strong>Lückensatz:</strong> <code>wollen _ so _ sein</code></p>
-<p><strong>Vollständiger Satz:</strong> <code>wollen **sie** so **gut** sein</code></p>
-<p><br><br></p>
+<section id="aufgabe-2-verzinkt" class="level3">
+<h3 class="anchored" data-anchor-id="aufgabe-2-verzinkt">Aufgabe 2: Verzinkt</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./aufgabe_2/files/crystal-growth.png" class="img-fluid figure-img"></p>
+<figcaption>Beispielbild</figcaption>
+</figure>
 </div>
+<p>Diese Aufgabe beschäftigt sich mit der Simulation von Kristallwachstum, wie es bei feuerverzinkten Metallen zu beobachten ist. Kristalle wachsen von zufälligen Keimen aus und breiten sich aus, bis sie auf andere Kristalle treffen.</p>
+<p><strong>Mein Ansatz</strong>: Ich habe einen Algorithmus entwickelt, der das Wachstum von Kristallen simuliert, indem er: 1. Zufällige Kristallisationskeime platziert 2. Das Wachstum der Kristalle mit gewichteten Wahrscheinlichkeiten für verschiedene Richtungen simuliert 3. Die entstehenden Muster visualisiert</p>
+<p><a href="./aufgabe_2/">Zur vollständigen Lösung →</a></p>
 </section>
-<section id="diskussion-des-ansatzes" class="level2">
-<h2 class="anchored" data-anchor-id="diskussion-des-ansatzes">Diskussion des Ansatzes</h2>
-<p>Diese Methode hat einige interessante Eigenschaften:</p>
+<section id="aufgabe-3-sudokopie" class="level3">
+<h3 class="anchored" data-anchor-id="aufgabe-3-sudokopie">Aufgabe 3: Sudokopie</h3>
+<p>Bei dieser Aufgabe geht es um eine Variante des klassischen Sudoku-Puzzles. Sudokopie beschäftigt sich mit der Frage, ob ein Sudoku-Rätsel eindeutig lösbar ist oder ob es mehrere gültige Lösungen haben kann. Die Herausforderung besteht darin, ein Programm zu entwickeln, das prüft, ob ein Sudoku-Rätsel eine eindeutige Lösung hat oder ob es durch “Kopieren” bestimmter Zellen zu mehreren Lösungen führen kann.</p>
+<p><a href="./aufgabe_3/">Zur vollständigen Lösung →</a></p>
+</section>
+</section>
+<section id="mein-lösungsprozess" class="level2">
+<h2 class="anchored" data-anchor-id="mein-lösungsprozess">Mein Lösungsprozess</h2>
+<p>Bei der Bearbeitung der Aufgaben bin ich nach folgendem Schema vorgegangen:</p>
 <ol type="1">
-<li><strong>Flexibilität</strong>: Der Ansatz funktioniert für beliebig viele Lücken in einem Satz</li>
-<li><strong>Effizienz</strong>: Reguläre Ausdrücke sind für Textsuche optimiert und arbeiten sehr schnell</li>
-<li><strong>Grenzen</strong>: Es kann zu falschen Treffern kommen, wenn die vorhandenen Wörter nicht eindeutig genug sind</li>
+<li><strong>Problemanalyse</strong>: Sorgfältiges Studium der Aufgabenstellung und Identifikation der Kernprobleme</li>
+<li><strong>Konzeptentwicklung</strong>: Skizzierung verschiedener Lösungsansätze und Auswahl des vielversprechendsten</li>
+<li><strong>Implementierung</strong>: Umsetzung des Lösungsansatzes in Code mit Fokus auf Korrektheit und Effizienz</li>
+<li><strong>Testen und Optimieren</strong>: Überprüfung der Lösung mit verschiedenen Testfällen und Optimierung der Performance</li>
+<li><strong>Dokumentation</strong>: Ausführliche Dokumentation des Lösungswegs, der Algorithmen und der Implementierung</li>
 </ol>
-<p>Für eine erweiterte Lösung könnte man:</p>
+<p>Die detaillierten Lösungen und Code-Implementierungen sind auf den jeweiligen Aufgabenseiten zu finden.</p>
+</section>
+<section id="technologien-und-werkzeuge" class="level2">
+<h2 class="anchored" data-anchor-id="technologien-und-werkzeuge">Technologien und Werkzeuge</h2>
+<p>Bei meinen Lösungen habe ich verschiedene Technologien und Werkzeuge eingesetzt:</p>
 <ul>
-<li>Kontextinformationen berücksichtigen (z.B. Kapitel oder Abschnitte)</li>
-<li>Mehrere mögliche Treffer anzeigen und bewerten</li>
-<li>Sprachmodelle einsetzen, um die wahrscheinlichste Vervollständigung zu finden</li>
+<li><strong>Programmiersprachen</strong>: JavaScript/TypeScript, Python</li>
+<li><strong>Bibliotheken und Frameworks</strong>: ObservableJS, NumPy, Matplotlib</li>
+<li><strong>Entwicklungsumgebung</strong>: Visual Studio Code</li>
+<li><strong>Dokumentation</strong>: Quarto für die Erstellung dieser interaktiven Webseite</li>
 </ul>
+</section>
+<section id="tipps-für-andere-teilnehmer" class="level2">
+<h2 class="anchored" data-anchor-id="tipps-für-andere-teilnehmer">Tipps für andere Teilnehmer</h2>
+<p>Aufgrund meiner Erfahrung mit dem Wettbewerb möchte ich folgende Tipps für andere Teilnehmer teilen:</p>
+<ol type="1">
+<li><strong>Aufgaben gründlich lesen</strong>: Häufig stecken wichtige Hinweise in Nebensätzen oder Beispielen.</li>
+<li><strong>Klein anfangen</strong>: Entwickle zuerst eine einfache Lösung, die funktioniert, und verbessere sie dann schrittweise.</li>
+<li><strong>Testen, testen, testen</strong>: Erstelle eigene Testfälle, um deine Lösung zu überprüfen.</li>
+<li><strong>Dokumentation nicht unterschätzen</strong>: Eine gut strukturierte und verständliche Dokumentation ist essenziell.</li>
+<li><strong>Zeit einplanen</strong>: Beginne frühzeitig, um genügend Zeit für Optimierungen und Problembehebung zu haben.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
