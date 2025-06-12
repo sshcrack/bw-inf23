@@ -30,7 +30,7 @@ Die 41. Ausgabe des Wettbewerbs startete im September 2023 mit der ersten Runde,
 
 ### [Aufgabe 1: Störung](./aufgabe_1/)
 
-![](./aufgabe_1/files/text-analysis.svg)
+![Textanalyse (Quelle: 41. Bundeswettbewerb der Informatik)](./aufgabe_1/files/text-analysis.svg)
 
 Bei dieser Aufgabe geht es um Textmustersuche: Alice und Bob haben das Problem, dass in ihrem Chat Nachrichten mit Lücken ankommen. Die Herausforderung besteht darin, ein Programm zu entwickeln, das im digitalen Text ihres Lieblingsbuches nach passenden Stellen sucht, um die Lücken zu füllen.
 

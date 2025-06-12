@@ -57,7 +57,7 @@
         "\n",
         "## Dateien"
       ],
-      "id": "619dae09"
+      "id": "20c1d284"
     },
     {
       "cell_type": "code",
@@ -76,7 +76,8 @@
         "for file in files:\n",
         "    file_path = files_dir / file\n",
         "    if file_path.is_file():\n",
-        "        print(f\"- [{file}](files/{file})\")"
+        "        if file.find(\"text-analysis.svg\") == -1:\n",
+        "            print(f\"- [{file}](files/{file})\")"
       ],
       "id": "list-files",
       "execution_count": null,
@@ -94,7 +95,7 @@
         "\n",
         "Unsere Implementierung verwendet die `re`-Bibliothek in Python, um reguläre Ausdrücke zu verarbeiten:"
       ],
-      "id": "75d22064"
+      "id": "28337a9a"
     },
     {
       "cell_type": "code",
@@ -120,7 +121,7 @@
       "source": [
         "## Lösung"
       ],
-      "id": "7395919c"
+      "id": "7b18ba29"
     },
     {
       "cell_type": "code",
@@ -197,14 +198,15 @@
         "- Mehrere mögliche Treffer anzeigen und bewerten\n",
         "- Sprachmodelle einsetzen, um die wahrscheinlichste Vervollständigung zu finden"
       ],
-      "id": "c1cb3361"
+      "id": "b6c11ef7"
     }
   ],
   "metadata": {
     "kernelspec": {
-      "display_name": "Python 3",
+      "name": "python3",
       "language": "python",
-      "name": "python3"
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/home/hendrik/Documents/quarto/coding-adventures/.venv/share/jupyter/kernels/python3"
     }
   },
   "nbformat": 4,

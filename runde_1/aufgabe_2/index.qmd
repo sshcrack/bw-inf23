@@ -15,7 +15,7 @@ format:
 Muster wie im Bild unten sieht man an feuerverzinkten Metallen, zum Beispiel an den Masten von Laternen oder Ampeln. Diese Muster entstehen, indem sich beim Erkalten des flüssigen Zinks, von zufällig vorhandenen Kristallisationskeimen aus, Kristalle bilden. Jeder Keim hat eine bestimmte Orientierung. Um ihn herum wächst ein Kristall mit der gleichen Orientierung, bis er auf andere Kristalle trifft. Kristalle unterschiedlicher Orientierung reflektieren das Licht unterschiedlich und erscheinen so unterschiedlich hell.
 :::
 ::: {.column width="30%"}
-![Feuerverzinktes Metall](https://upload.wikimedia.org/wikipedia/commons/c/c4/Feuerverzinkte_Oberfl%C3%A4che.jpg)
+![Feuerverzinktes Metall (Quelle: Wikipedia)](https://upload.wikimedia.org/wikipedia/commons/c/c4/Feuerverzinkte_Oberfl%C3%A4che.jpg)
 :::
 ::::
 :::
